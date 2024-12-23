@@ -6,6 +6,7 @@ const config = require('../config/config');
 class AuthController {
   async register(req, res, next) {
     try {
+      console.log(req.body);
       const user = await authService.register(req.body);
 
       const tokens = tokenService.generateTokens({ id: user.id });
@@ -55,6 +56,7 @@ class AuthController {
       next(error);
     }
   }
+
   async refreshToken(req, res, next) {
     try {
       const { refreshToken } = req.signedCookies;

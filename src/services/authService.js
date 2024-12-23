@@ -5,22 +5,20 @@ const { ApiError } = require('../utils/responses');
 
 class AuthService {
   async register(userData) {
-    const existingUser = await User.findOne({ email: userData.email });
+    const existingUser = await User.findOne({ username: userData.username });
 
     if (existingUser) {
-      throw new ApiError('Email already registered', 400);
+      throw new ApiError('Username already registered', 400);
     }
 
     const user = await User.create({
-      email: userData.email,
+      username: userData.username,
       password: userData.password,
-      name: userData.name,
     });
 
     return {
       id: user._id,
-      email: user.email,
-      name: user.name,
+      username: user.username,
       role: user.role,
     };
   }
