@@ -14,3 +14,20 @@
 {"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-23T09:03:27.464Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-23T09:03:51.490Z"}
 {"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-23T09:03:54.511Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2024-12-23T09:13:54.639Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2024-12-23T09:16:39.297Z"}
+{"ip":"::1","level":"error","message":"Password must contain at least one uppercase letter, one lowercase letter, and one number","method":"POST","path":"/api/auth/register","stack":"Error: Password must contain at least one uppercase letter, one lowercase letter, and one number\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\middleware\\validator.js:14:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-23T10:03:14.800Z"}
+{"level":"info","message":"::1 - - [23/Dec/2024:10:03:14 +0000] \"POST /api/auth/register HTTP/1.1\" 400 423 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-23T10:03:14.804Z"}
+{"ip":"::1","level":"error","message":"config is not defined","method":"POST","path":"/api/auth/register","stack":"ReferenceError: config is not defined\n    at register (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\authController.js:17:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-23T10:03:45.044Z"}
+{"level":"info","message":"::1 - - [23/Dec/2024:10:03:45 +0000] \"POST /api/auth/register HTTP/1.1\" 500 313 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-23T10:03:45.045Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-23T10:05:48.779Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-23T10:05:54.448Z"}
+{"ip":"::1","level":"error","message":"Email already registered","method":"POST","path":"/api/auth/register","stack":"Error: Email already registered\n    at AuthService.register (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\authService.js:11:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async register (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\authController.js:9:20)","timestamp":"2024-12-23T10:05:56.282Z"}
+{"level":"info","message":"::1 - - [23/Dec/2024:10:05:56 +0000] \"POST /api/auth/register HTTP/1.1\" 400 451 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-23T10:05:56.286Z"}
+{"level":"info","message":"Server closed","timestamp":"2024-12-23T10:07:51.363Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-23T10:07:54.634Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-23T10:07:57.656Z"}
+{"level":"info","message":"::1 - - [23/Dec/2024:10:08:02 +0000] \"POST /api/auth/register HTTP/1.1\" 201 356 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-23T10:08:02.808Z"}
+{"ip":"::1","level":"error","message":"Invalid credentials","method":"POST","path":"/api/auth/login","stack":"Error: Invalid credentials\n    at AuthService.login (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\authService.js:32:13)\n    at async login (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\authController.js:35:20)","timestamp":"2024-12-23T10:09:19.913Z"}
+{"level":"info","message":"::1 - - [23/Dec/2024:10:09:19 +0000] \"POST /api/auth/login HTTP/1.1\" 401 353 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-23T10:09:19.914Z"}
+{"level":"info","message":"::1 - - [23/Dec/2024:10:09:31 +0000] \"POST /api/auth/login HTTP/1.1\" 200 349 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-23T10:09:31.208Z"}

@@ -1,6 +1,7 @@
 const authService = require('../services/authService');
 const tokenService = require('../services/tokenService');
 const { ApiResponse, ApiError } = require('../utils/responses');
+const config = require('../config/config');
 
 class AuthController {
   async register(req, res, next) {
