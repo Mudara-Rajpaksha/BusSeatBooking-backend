@@ -104,53 +104,6 @@ class AuthController {
       next(error);
     }
   }
-
-  async logoutAll(req, res, next) {
-    try {
-      await authService.logoutAll(req.user.id);
-      res.clearCookie('refreshToken');
-      res.json(new ApiResponse('Logged out from all devices successfully'));
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async getProfile(req, res, next) {
-    try {
-      const user = await authService.getProfile(req.user.id);
-      res.json(new ApiResponse('Profile retrieved successfully', user));
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async updateProfile(req, res, next) {
-    try {
-      const user = await authService.updateProfile(req.user.id, req.body);
-      res.json(new ApiResponse('Profile updated successfully', user));
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async changePassword(req, res, next) {
-    try {
-      await authService.changePassword(req.user.id, req.body.currentPassword, req.body.newPassword);
-      res.json(new ApiResponse('Password changed successfully'));
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async deleteAccount(req, res, next) {
-    try {
-      await authService.deleteAccount(req.user.id, req.body.password);
-      res.clearCookie('refreshToken');
-      res.json(new ApiResponse('Account deleted successfully'));
-    } catch (error) {
-      next(error);
-    }
-  }
 }
 
 module.exports = new AuthController();
