@@ -33,8 +33,15 @@ class TripService {
 
   async getAllTrips(filters = {}, options = {}) {
     const query = Trip.find(filters)
-      .populate('route', 'origin destination price')
-      .populate('bus', 'registrationNumber seats');
+      .populate('route', 'origin destination price schedule')
+      .populate({
+        path: 'bus',
+        select: 'registrationNumber seats',
+        populate: {
+          path: 'seats',
+          match: { isBooked: false },
+        },
+      });
 
     if (options.sort) {
       query.sort(options.sort);
