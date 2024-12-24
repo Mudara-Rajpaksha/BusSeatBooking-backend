@@ -6,7 +6,6 @@ class RouteService {
   async addRoute(routeData, createdBy) {
     const { origin, destination, schedule, operator, price } = routeData;
 
-    // Verify operator exists and is an operator
     const operatorUser = await User.findOne({ _id: operator, role: 'operator' });
     if (!operatorUser) {
       throw new ApiError('Invalid operator or operator not found', 404);
@@ -35,7 +34,6 @@ class RouteService {
 
     await route.save();
 
-    // Populate operator details
     await route.populate('operator', 'username role');
     return route;
   }
@@ -60,7 +58,6 @@ class RouteService {
 
     return await query.exec();
   }
-
 }
 
 module.exports = new RouteService();

@@ -20,7 +20,7 @@ exports.validateBus = validate([
         return seats.every(
           (seat) =>
             typeof seat.seatNumber === 'string' &&
-            seat.seatNumber.match(/^[A-Z][1-2]$/) &&
+            seat.seatNumber.match(/^[A-Z][0-9]$/) &&
             typeof seat.isBooked === 'boolean'
         );
       }
