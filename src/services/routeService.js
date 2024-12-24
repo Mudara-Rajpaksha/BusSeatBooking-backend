@@ -1,14 +1,22 @@
 const Route = require('../models/Route');
+const User = require('../models/User');
 const { ApiError } = require('../utils/responses');
 
 class RouteService {
   async addRoute(routeData, createdBy) {
     const { origin, destination, schedule, operator, price } = routeData;
 
+    // Verify operator exists and is an operator
+    const operatorUser = await User.findOne({ _id: operator, role: 'operator' });
+    if (!operatorUser) {
+      throw new ApiError('Invalid operator or operator not found', 404);
+    }
+
     const existingRoute = await Route.findOne({
       origin,
       destination,
       schedule,
+      operator,
       isActive: true,
     });
 
@@ -26,11 +34,14 @@ class RouteService {
     });
 
     await route.save();
+
+    // Populate operator details
+    await route.populate('operator', 'username role');
     return route;
   }
 
   async getAllRoutes(filters = {}, options = {}) {
-    const query = Route.find(filters);
+    const query = Route.find(filters).populate('operator', 'username role');
 
     if (options.sort) {
       query.sort(options.sort);
@@ -49,6 +60,7 @@ class RouteService {
 
     return await query.exec();
   }
+
 }
 
 module.exports = new RouteService();

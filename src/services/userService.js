@@ -24,40 +24,14 @@ class UserService {
     return await query.exec();
   }
 
-  async getUserById(userId) {
-    const user = await User.findById(userId);
-    if (!user) {
-      throw new ApiError('User not found', 404);
-    }
-    return user;
-  }
-
-  async updateUser(userId, updateData) {
-    const allowedUpdates = ['name', 'email', 'role'];
-    const updates = Object.keys(updateData)
-      .filter((key) => allowedUpdates.includes(key))
-      .reduce((obj, key) => {
-        obj[key] = updateData[key];
-        return obj;
-      }, {});
-
-    const user = await User.findByIdAndUpdate(userId, updates, { new: true, runValidators: true });
-
-    if (!user) {
-      throw new ApiError('User not found', 404);
+  async getUsersByRole(role) {
+    if (!role) {
+      throw new ApiError('Role is required', 400);
     }
 
-    return user;
-  }
+    const query = User.find({ role });
 
-  async deleteUser(userId) {
-    const user = await User.findByIdAndUpdate(userId, { active: false }, { new: true });
-
-    if (!user) {
-      throw new ApiError('User not found', 404);
-    }
-
-    return user;
+    return await query.exec();
   }
 }
 

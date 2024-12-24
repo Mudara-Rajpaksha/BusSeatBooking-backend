@@ -33,7 +33,9 @@ class AuthController {
 
   async login(req, res, next) {
     try {
-      const user = await authService.login(req.body.email, req.body.password);
+      const user = await authService.login(req.body.username, req.body.password);
+
+      console.log(user);
 
       const tokens = tokenService.generateTokens({ id: user.id });
       await tokenService.saveToken(user.id, tokens.accessToken, tokens.refreshToken, req.headers['user-agent'], req.ip);

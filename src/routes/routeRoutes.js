@@ -5,7 +5,9 @@ const { authenticate, authorize } = require('../middleware/auth');
 const { validateRoute } = require('../validators/routeValidator');
 
 router.use(authenticate);
-router.post('/add', validateRoute, authorize('admin'), routeController.addRoute);
-router.get('/', authorize('admin'), routeController.getAllRoutes);
+router.use(authorize('admin'));
+
+router.post('/add', validateRoute, routeController.addRoute);
+router.get('/', routeController.getAllRoutes);
 
 module.exports = router;

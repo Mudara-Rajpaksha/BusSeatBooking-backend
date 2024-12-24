@@ -24,8 +24,8 @@ class AuthService {
     };
   }
 
-  async login(email, password) {
-    const user = await User.findOne({ email }).select('+password');
+  async login(username, password) {
+    const user = await User.findOne({ username }).select('+password');
 
     if (!user || !(await user.comparePassword(password))) {
       throw new ApiError('Invalid credentials', 401);
@@ -36,8 +36,7 @@ class AuthService {
 
     return {
       id: user._id,
-      email: user.email,
-      name: user.name,
+      username: user.username,
       role: user.role,
     };
   }

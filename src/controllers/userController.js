@@ -11,28 +11,11 @@ class UserController {
     }
   }
 
-  async getUserById(req, res, next) {
+  async getUsersByRole(req, res, next) {
     try {
-      const user = await userService.getUserById(req.params.id);
-      res.json(new ApiResponse('User retrieved successfully', user));
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async updateUser(req, res, next) {
-    try {
-      const user = await userService.updateUser(req.params.id, req.body);
-      res.json(new ApiResponse('User updated successfully', user));
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async deleteUser(req, res, next) {
-    try {
-      await userService.deleteUser(req.params.id);
-      res.json(new ApiResponse('User deleted successfully'));
+      const { role } = req.params;
+      const users = await userService.getUsersByRole(role);
+      res.json(new ApiResponse('Users by role retrieved successfully', users));
     } catch (error) {
       next(error);
     }

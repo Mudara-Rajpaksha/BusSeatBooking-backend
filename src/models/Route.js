@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const isValidTimeFormat = (time) => {
+  const timeRegex = /^(0?[1-9]|1[0-2]):00 (AM|PM)$/;
+  return timeRegex.test(time);
+};
+
 const routeSchema = new mongoose.Schema(
   {
     origin: {
@@ -13,13 +18,29 @@ const routeSchema = new mongoose.Schema(
       trim: true,
     },
     schedule: {
-      type: String,
+      type: [String],
       required: true,
+      validate: {
+        validator: function (schedules) {
+          if (!Array.isArray(schedules) || schedules.length === 0) {
+            return false;
+          }
+          return schedules.every((time) => isValidTimeFormat(time));
+        },
+        message: 'Invalid schedule time format. Must be in HH:00 AM/PM format',
+      },
     },
     operator: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
-      trim: true,
+      validate: {
+        validator: async function (operatorId) {
+          const user = await mongoose.model('User').findById(operatorId);
+          return user && user.role === 'operator';
+        },
+        message: 'Invalid operator ID or user is not an operator',
+      },
     },
     price: {
       type: Number,
@@ -38,7 +59,10 @@ const routeSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
 
 module.exports = mongoose.model('Route', routeSchema);

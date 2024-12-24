@@ -13,11 +13,12 @@ class RouteController {
 
   async getAllRoutes(req, res, next) {
     try {
-      const { origin, destination, sort, limit, skip } = req.query;
+      const { origin, destination, operator, sort, limit, skip } = req.query;
 
       const filters = {};
       if (origin) filters.origin = origin;
       if (destination) filters.destination = destination;
+      if (operator) filters.operator = operator;
 
       const options = { sort, limit, skip };
       const routes = await routeService.getAllRoutes(filters, options);
