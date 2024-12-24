@@ -104,6 +104,15 @@ class AuthController {
       next(error);
     }
   }
+
+  async getProfile(req, res, next) {
+    try {
+      const user = await authService.getProfile(req.user.id);
+      res.json(new ApiResponse('Profile retrieved successfully', { user }));
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = new AuthController();

@@ -10,6 +10,7 @@ router.post('/login', authLimiter, validateLogin, authController.login);
 router.post('/refresh-token', authController.refreshToken);
 
 router.use(authenticate);
+router.get('/me', authController.getProfile);
 router.post('/logout', authController.logout);
 
 module.exports = router;

@@ -45,6 +45,21 @@ class AuthService {
   async logout(userId, refreshToken) {
     await Token.findOneAndUpdate({ userId, refreshToken, isValid: true }, { isValid: false });
   }
+
+  async getProfile(userId) {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new ApiError('User not found', 404);
+    }
+
+    return {
+      id: user._id,
+      username: user.username,
+      role: user.role,
+      verified: user.verified,
+    };
+  }
 }
 
 module.exports = new AuthService();
