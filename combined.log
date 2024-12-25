@@ -4705,3 +4705,5 @@
 {"level":"info","message":"::1 - - [25/Dec/2024:04:23:11 +0000] \"GET /api/routes HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\"","timestamp":"2024-12-25T04:23:11.453Z"}
 {"level":"info","message":"::1 - - [25/Dec/2024:04:23:14 +0000] \"GET /api/users/role/operator HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\"","timestamp":"2024-12-25T04:23:14.177Z"}
 {"level":"info","message":"::1 - - [25/Dec/2024:04:23:14 +0000] \"GET /api/routes HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\"","timestamp":"2024-12-25T04:23:14.454Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-25T04:24:13.978Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-25T04:24:17.009Z"}
