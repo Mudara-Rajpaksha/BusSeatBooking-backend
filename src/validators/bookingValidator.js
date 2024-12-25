@@ -35,14 +35,13 @@ exports.validateCreateBooking = validate([
         throw new Error('Trip not found');
       }
 
-      const seatExists = trip.bus.seats.some((seat) => seat.number === seatNumber);
-      console.log(seatExists);
+      const seatExists = trip.bus.seats.some((seat) => seat.seatNumber === seatNumber);
 
       if (!seatExists) {
         throw new Error('Invalid seat number');
       }
 
-      const isSeatBooked = trip.bus.seats.some((seat) => seat.number === seatNumber && seat.isBooked);
+      const isSeatBooked = trip.bus.seats.some((seat) => seat.seatNumber === seatNumber && seat.isBooked);
 
       if (isSeatBooked) {
         throw new Error('Seat is already booked');
