@@ -93,67 +93,77 @@ class BookingService {
       session = await mongoose.startSession();
       session.startTransaction();
 
-      const booking = await Booking.findOne({
-        _id: bookingId,
-        user: userId,
-        status: 'CONFIRMED',
-      }).session(session);
+      const booking = await Booking.findById(bookingId).session(session);
 
       if (!booking) {
-        throw new ApiError('Booking not found or already cancelled', 404);
+        throw new ApiError('Booking not found', 404);
+      }
+
+      if (booking.status === 'CANCELLED') {
+        throw new ApiError('Booking is already cancelled', 400);
+      }
+
+      if (!booking.user.equals(userId)) {
+        throw new ApiError('You are not authorized to cancel this booking', 403);
+      }
+
+      const trip = await Trip.findById(booking.trip).populate('bus').session(session);
+
+      if (!trip) {
+        throw new ApiError('Associated trip not found', 404);
+      }
+
+      const seat = trip.bus.seats.find((s) => s.seatNumber === booking.seat && s.isBooked);
+
+      if (!seat) {
+        throw new ApiError('Seat not found or not booked', 400);
+      }
+
+      const [updatedBus, updatedTrip] = await Promise.all([
+        Bus.findOneAndUpdate(
+          { _id: trip.bus._id, 'seats.seatNumber': booking.seat },
+          { $set: { 'seats.$.isBooked': false } },
+          { session, new: true }
+        ),
+        Trip.findByIdAndUpdate(booking.trip, { $inc: { availableSeats: 1 } }, { session, new: true }),
+      ]);
+
+      if (!updatedBus || !updatedTrip) {
+        throw new ApiError('Failed to update seat or trip information', 500);
       }
 
       booking.status = 'CANCELLED';
-
-      const [updatedTrip] = await Promise.all([
-        Trip.findOneAndUpdate(
-          {
-            _id: booking.trip,
-            'bus.seats.seatNumber': booking.seat,
-          },
-          {
-            $set: {
-              'bus.seats.$.isBooked': false,
-            },
-            $inc: { availableSeats: 1 },
-          },
-          { session, new: true }
-        ),
-        booking.save({ session }),
-      ]);
-
-      if (!updatedTrip) {
-        throw new ApiError('Failed to update trip', 500);
-      }
+      await booking.save({ session });
 
       await session.commitTransaction();
-      return booking;
+
+      return await booking.populate([
+        { path: 'trip', populate: ['route', 'bus'] },
+        { path: 'user', select: 'name email' },
+      ]);
     } catch (error) {
       if (session) {
-        try {
-          await session.abortTransaction();
-        } catch (abortError) {
-          console.error('Error aborting transaction:', abortError);
-        }
+        await session.abortTransaction();
       }
-
-      if (error.name === 'MongoExpiredSessionError') {
-        throw new ApiError('Transaction timeout. Please try again.', 500);
-      }
+      console.error('Error during cancelBooking:', error.message, {
+        bookingId,
+        userId,
+        errorStack: error.stack,
+      });
       throw error;
     } finally {
       if (session) {
-        try {
-          await session.endSession();
-        } catch (endError) {
-          console.error('Error ending session:', endError);
-        }
+        await session.endSession();
       }
     }
   }
 
-  async getAllBookings(filters = {}, options = {}) {
+  async getAllBookings(filters = {}, options = {}, userId = null) {
     const query = {};
+
+    if (userId) {
+      query.user = userId;
+    }
 
     if (filters.status) {
       query.status = filters.status;
@@ -182,8 +192,8 @@ class BookingService {
     }
 
     if (options.page && options.limit) {
-      const page = parseInt(options.page);
-      const limit = parseInt(options.limit);
+      const page = parseInt(options.page, 10);
+      const limit = parseInt(options.limit, 10);
       const skip = (page - 1) * limit;
       bookingsQuery.skip(skip).limit(limit);
     }
@@ -193,8 +203,8 @@ class BookingService {
     return {
       bookings,
       total,
-      page: options.page ? parseInt(options.page) : 1,
-      limit: options.limit ? parseInt(options.limit) : total,
+      page: options.page ? parseInt(options.page, 10) : 1,
+      limit: options.limit ? parseInt(options.limit, 10) : total,
     };
   }
 }

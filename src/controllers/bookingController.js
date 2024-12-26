@@ -1,5 +1,6 @@
 const bookingService = require('../services/bookingService');
 const { ApiResponse } = require('../utils/responses');
+const USER_ROLE = require('../enums/userRoles');
 
 class BookingController {
   async createBooking(req, res, next) {
@@ -37,8 +38,17 @@ class BookingController {
         sort,
       };
 
-      const result = await bookingService.getAllBookings(filters, options);
-      res.json(new ApiResponse('Bookings retrieved successfully', result));
+      let result;
+
+      if (req.user.role === USER_ROLE.ADMIN) {
+        result = await bookingService.getAllBookings(filters, options);
+      } else if (req.user.role === USER_ROLE.COMMUTER) {
+        result = await bookingService.getAllBookings(filters, options, req.user._id);
+      } else {
+        return res.status(403).json(new ApiResponse('Access denied.', null));
+      }
+
+      res.json(new ApiResponse('Bookings retrieved successfully.', result));
     } catch (error) {
       next(error);
     }

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const USER_ROLE = require('../enums/userRoles');
 
 const userSchema = new mongoose.Schema(
   {
@@ -19,8 +20,8 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['commuter', 'admin', 'operator'],
-      default: 'commuter',
+      enum: [USER_ROLE.COMMUTER, USER_ROLE.ADMIN, USER_ROLE.OPERATOR],
+      default: USER_ROLE.COMMUTER,
     },
     verified: {
       type: Boolean,
