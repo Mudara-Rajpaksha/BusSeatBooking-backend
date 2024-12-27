@@ -21,4 +21,7 @@ module.exports = {
   LOG_LEVEL: process.env.LOG_LEVEL || 'info',
 
   PASSWORD_SALT_ROUNDS: 12,
+
+  SWAGGER_USER: process.env.SWAGGER_USER,
+  SWAGGER_PASSWORD: process.env.SWAGGER_PASSWORD,
 };

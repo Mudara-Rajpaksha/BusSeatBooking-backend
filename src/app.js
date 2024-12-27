@@ -7,12 +7,15 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const compression = require('compression');
-const { authLimiter } = require('./middleware/rateLimiter');
+const { rateLimiter } = require('./middleware/rateLimiter');
 const connectDB = require('./config/database');
 const config = require('./config/config');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 const logger = require('./utils/logger');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const swaggerOptions = require('./config/swagger');
 
 const app = express();
 
@@ -25,7 +28,7 @@ app.use(
     credentials: true,
   })
 );
-app.use('/api/auth', authLimiter);
+app.use('/api/auth', rateLimiter);
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
@@ -38,6 +41,38 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser(config.COOKIE_SECRET));
 
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use(
+  '/api-docs',
+  process.env.NODE_ENV === 'production'
+    ? [
+        rateLimiter,
+        (req, res, next) => {
+          // Basic authentication for Swagger UI in production
+          const auth = { login: process.env.SWAGGER_USER, password: process.env.SWAGGER_PASSWORD };
+          const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
+          const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':');
+
+          if (login && password && login === auth.login && password === auth.password) {
+            return next();
+          }
+          res.set('WWW-Authenticate', 'Basic realm="Swagger Documentation"');
+          res.status(401).send('Authentication required for API documentation.');
+        },
+      ]
+    : [],
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, {
+    explorer: true,
+    customSiteTitle: 'API Documentation',
+    customfavIcon: '/assets/favicon.ico',
+    customCss: '.swagger-ui .topbar { display: none }',
+    swaggerOptions: {
+      persistAuthorization: true,
+      displayRequestDuration: true,
+    },
+  })
+);
 app.use('/api', routes);
 
 app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));

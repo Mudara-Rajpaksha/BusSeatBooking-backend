@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 const { authenticate } = require('../middleware/auth');
-const { authLimiter } = require('../middleware/rateLimiter');
+const { rateLimiter } = require('../middleware/rateLimiter');
 const { validateRegister, validateLogin } = require('../validators/registerValidator');
 
-router.post('/register', authLimiter, validateRegister, authController.register);
-router.post('/login', authLimiter, validateLogin, authController.login);
+router.post('/register', rateLimiter, validateRegister, authController.register);
+router.post('/login', rateLimiter, validateLogin, authController.login);
 router.post('/refresh-token', authController.refreshToken);
 
 router.use(authenticate);
