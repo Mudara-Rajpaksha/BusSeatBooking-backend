@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const routeController = require('../controllers/routeController');
 const { authenticate, authorize } = require('../middleware/auth');
-const { validateRoute } = require('../validators/routeValidator');
 
-router.use(authenticate);
+router.post('/add', routeController.createRoute);
 
-router.post('/add', authorize('admin'), validateRoute, routeController.addRoute);
-router.get('/', authorize('admin', 'operator'), routeController.getAllRoutes);
+router.put('/:routeId', routeController.updateRoute);
+
+router.delete('/:routeId', routeController.deleteRoute);
+
+router.get('/:routeId', routeController.getRoute);
+
+router.get('/', routeController.getAllRoutes);
 
 module.exports = router;

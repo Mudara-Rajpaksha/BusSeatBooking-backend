@@ -5316,3 +5316,472 @@
 {"level":"info","message":"::1 - - [27/Dec/2024:04:38:40 +0000] \"GET /api-docs/swagger-ui-init.js HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\"","timestamp":"2024-12-27T04:38:40.014Z"}
 {"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T04:38:40.174Z"}
 {"level":"info","message":"::1 - - [27/Dec/2024:04:38:40 +0000] \"GET /assets/favicon.ico HTTP/1.1\" 404 66 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\"","timestamp":"2024-12-27T04:38:40.229Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:37:23.312Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:37:27.055Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:37:39.816Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:37:42.995Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:37:52.517Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:37:55.464Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:38:09.400Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:38:12.356Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:38:15.507Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:38:18.071Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:38:21.075Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:38:22.495Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:38:25.554Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:39:16.052Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:39:19.274Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:39:24.152Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:39:27.104Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:40:13.932Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:40:17.074Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:59:21.639Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:59:25.579Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:59:41.673Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T09:59:45.078Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:59:55.292Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T09:59:58.146Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:00:01.068Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:00:12.534Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:00:14.477Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:00:18.012Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:00:21.317Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:03:15.313Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:03:18.816Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:03:27.101Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:03:30.045Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:03:42.849Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:03:45.984Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:03:58.726Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:04:01.755Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:06:31.728Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:06:35.103Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:14:42.423Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:14:46.195Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:15:47.378Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:15:51.155Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:16:06.238Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:16:09.224Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:19.324Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:18:22.824Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:25.064Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:18:28.353Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:29.117Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:18:32.113Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:34.767Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:18:37.683Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:47.428Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:18:50.543Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:53.215Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:18:54.472Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:18:57.744Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:19:04.675Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:19:07.826Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:19:10.883Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:19:16.290Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:19:19.692Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:19:41.718Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:19:45.242Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:19:50.160Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:19:53.382Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:20:18.812Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:20:22.101Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:21:39.610Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:21:43.209Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:21:46.150Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:21:54.579Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:21:57.723Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:00.984Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:03.738Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:22:06.721Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:08.867Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:12.317Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:22:15.530Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:46.643Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:48.510Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:22:50.077Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:22:53.050Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:24:29.209Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:24:32.848Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:24:35.755Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:24:37.578Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:24:40.438Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:27:13.835Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:27:17.607Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:27:18.919Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:27:22.156Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:27:44.767Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:27:47.705Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:27:50.952Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:27:53.925Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:29:00.786Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:29:04.366Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:29:07.789Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:29:11.055Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:10:30:28 +0000] \"POST /api/add HTTP/1.1\" 404 55 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T10:30:28.230Z"}
+{"ip":"::1","level":"error","message":"No access token provided","method":"POST","path":"/api/permit/add","stack":"Error: No access token provided\n    at exports.authenticate (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\middleware\\auth.js:9:13)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:328:13)","timestamp":"2024-12-27T10:30:38.376Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:10:30:38 +0000] \"POST /api/permit/add HTTP/1.1\" 401 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T10:30:38.380Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:30:49.532Z"}
+{"ip":"::1","level":"error","message":"mongoose is not defined","method":"POST","path":"/api/permit/add","stack":"ReferenceError: mongoose is not defined\n    at PermitService.createPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\permitService.js:6:21)\n    at createPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\permitController.js:7:42)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)","timestamp":"2024-12-27T10:30:51.950Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:10:30:51 +0000] \"POST /api/permit/add HTTP/1.1\" 500 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T10:30:51.955Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:30:53.333Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:31:25.156Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:31:28.153Z"}
+{"ip":"::1","level":"error","message":"Permit validation failed: expiryDate: Path `expiryDate` is required., issuedDate: Path `issuedDate` is required., vehicleType: Path `vehicleType` is required., holderName: Path `holderName` is required.","method":"POST","path":"/api/permit/add","stack":"ValidationError: Permit validation failed: expiryDate: Path `expiryDate` is required., issuedDate: Path `issuedDate` is required., vehicleType: Path `vehicleType` is required., holderName: Path `holderName` is required.\n    at Document.invalidate (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\document.js:3219:32)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\document.js:3012:17\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\schematype.js:1368:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)","timestamp":"2024-12-27T10:31:28.956Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:10:31:28 +0000] \"POST /api/permit/add HTTP/1.1\" 400 158 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T10:31:28.960Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:33:52.708Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:33:56.411Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:52:07.505Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:52:11.216Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:52:49.531Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:52:54.688Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:52:57.755Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:53:05.825Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:53:08.937Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:53:11.777Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:53:14.976Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:53:27.070Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:53:30.176Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:53:48.233Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:53:50.698Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:53:55.662Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:53:58.736Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:54:24.436Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:54:28.165Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:54:42.550Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:54:45.484Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:55:26.537Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T10:55:29.575Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T10:55:32.543Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:08:43.716Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:08:47.174Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:08:50.918Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:08:53.904Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:10:53 +0000] \"POST /api/permit/add HTTP/1.1\" 201 399 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:10:53.965Z"}
+{"ip":"::1","level":"error","message":"Permit not found","method":"GET","path":"/api/permit/676e8b3d972b04d42f06a547","stack":"Error: Permit not found\n    at PermitService.getPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\permitService.js:51:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async getPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\permitController.js:34:22)","timestamp":"2024-12-27T11:18:03.027Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:18:03 +0000] \"GET /api/permit/676e8b3d972b04d42f06a547 HTTP/1.1\" 404 444 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:18:03.028Z"}
+{"ip":"::1","level":"error","message":"Permit not found","method":"GET","path":"/api/permit/676e8b3d972b04d42f06a547","stack":"Error: Permit not found\n    at PermitService.getPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\permitService.js:51:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async getPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\permitController.js:34:22)","timestamp":"2024-12-27T11:18:49.173Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:18:49 +0000] \"GET /api/permit/676e8b3d972b04d42f06a547 HTTP/1.1\" 404 444 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:18:49.174Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:01.778Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:04.581Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:05.639Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:20:08.700Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:10.033Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:12.085Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:14.675Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:16.000Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:20:18.942Z"}
+{"ip":"::1","level":"error","message":"Permit not found","method":"GET","path":"/api/permit/676e8b3d972b04d42f06a547","stack":"Error: Permit not found\n    at PermitService.getPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\permitService.js:52:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async getPermit (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\permitController.js:34:22)","timestamp":"2024-12-27T11:20:21.101Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:20:21 +0000] \"GET /api/permit/676e8b3d972b04d42f06a547 HTTP/1.1\" 404 444 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:20:21.105Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:20:51.581Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:20:54.902Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:20:59 +0000] \"GET /api/permit/676e8b3d972b04d42f06a547 HTTP/1.1\" 200 401 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:20:59.683Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:21:17.173Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:21:18.307Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:21:21.625Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:21:23.814Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:21:27.037Z"}
+{"ip":"::1","level":"error","message":"E11000 duplicate key error collection: bus_seat_booking.permits index: permitNumber_1 dup key: { permitNumber: \"PERMIT-123456\" }","method":"POST","path":"/api/permit/add","stack":"MongoServerError: E11000 duplicate key error collection: bus_seat_booking.permits index: permitNumber_1 dup key: { permitNumber: \"PERMIT-123456\" }\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongodb\\lib\\operations\\insert.js:50:33\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongodb\\lib\\operations\\command.js:84:64\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-27T11:21:38.526Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:21:38 +0000] \"POST /api/permit/add HTTP/1.1\" 400 58 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:21:38.529Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:21:48 +0000] \"POST /api/permit/add HTTP/1.1\" 201 399 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:21:48.174Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:23:44.830Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:23:48.286Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:23:56 +0000] \"GET /api/permit HTTP/1.1\" 200 777 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:23:56.036Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T11:47:59.230Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T11:48:02.944Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:48:11 +0000] \"PUT /api/permit/676e8dcbed7b0fd303b951e7 HTTP/1.1\" 200 399 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:48:11.866Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:48:20 +0000] \"PUT /api/permit/676e8dcbed7b0fd303b951e7 HTTP/1.1\" 200 401 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:48:20.391Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:11:48:50 +0000] \"DELETE /api/permit/676e8dcbed7b0fd303b951e7 HTTP/1.1\" 200 401 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T11:48:50.081Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:07:58.725Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:08:00.480Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:08:03.455Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:08:06.641Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:12:33.433Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:12:36.884Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:13:48.376Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:13:52.089Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:13:58.200Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:14:01.119Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:14:03.239Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:14:06.570Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:14:17 +0000] \"POST /api/bus/add HTTP/1.1\" 201 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:14:17.281Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:17:33.173Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:17:36.643Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:17:45.205Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:17:48.183Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:17:51.194Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:19:34.300Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:19:38.054Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:19:47.063Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:19:50.065Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:20:04.903Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:20:08.123Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:20:11.586Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:20:15.211Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:20:18.405Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:20:35.792Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:20:39.146Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:20:50.344Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:20:52.008Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:20:54.937Z"}
+{"ip":"::1","level":"error","message":"Permit not found","method":"POST","path":"/api/bus/add","stack":"Error: Permit not found\n    at BusService.createBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\busService.js:13:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\busController.js:7:19)","timestamp":"2024-12-27T12:20:59.145Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:20:59 +0000] \"POST /api/bus/add HTTP/1.1\" 404 434 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:20:59.149Z"}
+{"ip":"::1","level":"error","message":"One or more routes not found","method":"POST","path":"/api/bus/add","stack":"Error: One or more routes not found\n    at BusService.createBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\busService.js:20:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\busController.js:7:19)","timestamp":"2024-12-27T12:21:21.563Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:21:21 +0000] \"POST /api/bus/add HTTP/1.1\" 404 458 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:21:21.564Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:33:22.429Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:33:26.955Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:33:30.062Z"}
+{"ip":"::1","level":"error","message":"Access token expired","method":"POST","path":"/api/routes/add","stack":"Error: Access token expired\n    at TokenService.validateAccessToken (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\tokenService.js:61:13)\n    at exports.authenticate (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\middleware\\auth.js:12:40)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)","timestamp":"2024-12-27T12:33:59.353Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:33:59 +0000] \"POST /api/routes/add HTTP/1.1\" 401 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:33:59.360Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:34:08.934Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:34:12.379Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:34:15 +0000] \"POST /api/routes/add HTTP/1.1\" 404 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:34:15.031Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:34:15.233Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:34:27.063Z"}
+{"ip":"::1","level":"error","message":"Invalid route data","method":"POST","path":"/api/routes/add","stack":"Error: Invalid route data\n    at RouteService.createRoute (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\routeService.js:14:13)\n    at createRoute (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\routeController.js:7:40)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)","timestamp":"2024-12-27T12:34:28.815Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:34:28 +0000] \"POST /api/routes/add HTTP/1.1\" 400 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:34:28.820Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:34:30.284Z"}
+{"ip":"::1","level":"error","message":"Invalid route data","method":"POST","path":"/api/routes/add","stack":"Error: Invalid route data\n    at RouteService.createRoute (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\routeService.js:14:13)\n    at createRoute (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\routeController.js:7:40)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)","timestamp":"2024-12-27T12:35:05.071Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:35:05 +0000] \"POST /api/routes/add HTTP/1.1\" 400 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:35:05.073Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-27T12:36:22.773Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-27T12:36:26.768Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:12:36:30 +0000] \"POST /api/routes/add HTTP/1.1\" 201 674 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T12:36:30.139Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:54:03 +0000] \"GET /api/routes?status=active&page=1&limit=10&sort=routeNumber HTTP/1.1\" 200 720 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:54:03.960Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:55:05 +0000] \"GET /api/routes/676e9f4ac64095539f7a667f HTTP/1.1\" 200 676 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:55:05.176Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:56:03 +0000] \"PUT /api/routes/676e9f4ac64095539f7a667f HTTP/1.1\" 200 674 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:56:03.704Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:56:43 +0000] \"DELETE /api/routes/676e9f4ac64095539f7a667f HTTP/1.1\" 200 674 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:56:43.214Z"}
+{"ip":"::1","level":"error","message":"Route not found","method":"GET","path":"/api/routes/676e9f4ac64095539f7a667f","stack":"Error: Route not found\n    at RouteService.getRoute (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\routeService.js:61:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async getRoute (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\routeController.js:34:21)","timestamp":"2024-12-27T14:56:50.475Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:56:50 +0000] \"GET /api/routes/676e9f4ac64095539f7a667f HTTP/1.1\" 404 437 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:56:50.476Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:57:00 +0000] \"GET /api/routes?status=active&page=1&limit=10&sort=routeNumber HTTP/1.1\" 200 113 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:57:00.793Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:57:08 +0000] \"POST /api/routes/add HTTP/1.1\" 201 674 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:57:08.133Z"}
+{"ip":"::1","level":"error","message":"E11000 duplicate key error collection: bus_seat_booking.buses index: registrationNumber_1 dup key: { registrationNumber: \"AB1234XY\" }","method":"POST","path":"/api/bus/add","stack":"MongoServerError: E11000 duplicate key error collection: bus_seat_booking.buses index: registrationNumber_1 dup key: { registrationNumber: \"AB1234XY\" }\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongodb\\lib\\operations\\insert.js:50:33\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongodb\\lib\\operations\\command.js:84:64\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-27T14:57:26.325Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:57:26 +0000] \"POST /api/bus/add HTTP/1.1\" 400 64 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:57:26.326Z"}
+{"level":"info","message":"::1 - - [27/Dec/2024:14:57:51 +0000] \"POST /api/bus/add HTTP/1.1\" 201 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-27T14:57:51.914Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:00:28.459Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:00:32.133Z"}
+{"ip":"::1","level":"error","message":"E11000 duplicate key error collection: bus_seat_booking.buses index: registrationNumber_1 dup key: { registrationNumber: \"AB1234XY\" }","method":"POST","path":"/api/bus/add","stack":"MongoServerError: E11000 duplicate key error collection: bus_seat_booking.buses index: registrationNumber_1 dup key: { registrationNumber: \"AB1234XY\" }\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongodb\\lib\\operations\\insert.js:50:33\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongodb\\lib\\operations\\command.js:84:64\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T02:00:36.031Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:00:36 +0000] \"POST /api/bus/add HTTP/1.1\" 400 64 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:00:36.035Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:07:29 +0000] \"POST /api/permit/add HTTP/1.1\" 201 399 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:07:29.514Z"}
+{"ip":"::1","level":"error","message":"One or more routes not found","method":"POST","path":"/api/bus/add","stack":"Error: One or more routes not found\n    at BusService.createBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\busService.js:20:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\busController.js:7:19)","timestamp":"2024-12-29T02:07:49.593Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:07:49 +0000] \"POST /api/bus/add HTTP/1.1\" 404 458 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:07:49.594Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:07:58 +0000] \"POST /api/routes/add HTTP/1.1\" 201 674 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:07:58.103Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:08:14 +0000] \"POST /api/bus/add HTTP/1.1\" 201 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:08:14.584Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:08:33 +0000] \"GET /api/bus HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:08:33.675Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:08:59 +0000] \"GET /api/bus/6770af0e6b92196603c8d3e6 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:08:59.574Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:09:33 +0000] \"GET /api/bus/6770af0e6b92196603c8d3e6 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:09:33.744Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:09:39 +0000] \"PUT /api/bus/6770af0e6b92196603c8d3e6 HTTP/1.1\" 200 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:09:39.303Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:09:45 +0000] \"GET /api/bus/6770af0e6b92196603c8d3e6 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:09:45.543Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:10:25 +0000] \"DELETE /api/bus/6770af0e6b92196603c8d3e6 HTTP/1.1\" 200 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:10:25.212Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:02:10:57 +0000] \"POST /api/bus/add HTTP/1.1\" 201 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T02:10:57.512Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:14:11.264Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:14:14.959Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:14:24.250Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:14:27.216Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:14:34.395Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:14:37.304Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:15:02.081Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:15:05.595Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:15:30.319Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:15:33.857Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:31:03.606Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:31:07.540Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:31:44.995Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:31:48.012Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:39:48.743Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:39:52.291Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:40:04.885Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:40:07.928Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:40:17.167Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:40:20.316Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:40:57.151Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:41:00.667Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:41:41.422Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:41:44.429Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:49:27.074Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:49:30.643Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:49:32.896Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:49:35.768Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:56:52.828Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:56:56.422Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T02:57:41.029Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T02:57:44.345Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:10:14.949Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:10:18.691Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:10:19.698Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:10:22.841Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:10:33.218Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:10:36.289Z"}
+{"ip":"::1","level":"error","message":"Route not found","method":"POST","path":"/api/trip/add","stack":"Error: Route not found\n    at TripService.createTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\tripService.js:13:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\tripController.js:7:20)","timestamp":"2024-12-29T03:14:30.842Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:03:14:30 +0000] \"POST /api/trip/add HTTP/1.1\" 404 437 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T03:14:30.846Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:03:14:59 +0000] \"GET /api/routes?status=active&page=1&limit=10&sort=routeNumber HTTP/1.1\" 200 720 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T03:14:59.260Z"}
+{"ip":"::1","level":"error","message":"Bus not found or inactive","method":"POST","path":"/api/trip/add","stack":"Error: Bus not found or inactive\n    at TripService.createTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\tripService.js:19:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\tripController.js:7:20)","timestamp":"2024-12-29T03:15:22.199Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:03:15:22 +0000] \"POST /api/trip/add HTTP/1.1\" 404 457 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T03:15:22.200Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:03:15:34 +0000] \"GET /api/bus HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T03:15:34.577Z"}
+{"ip":"::1","level":"error","message":"Seat map not found for this bus","method":"POST","path":"/api/trip/add","stack":"Error: Seat map not found for this bus\n    at TripService.createTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\tripService.js:48:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\tripController.js:7:20)","timestamp":"2024-12-29T03:15:44.443Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:03:15:44 +0000] \"POST /api/trip/add HTTP/1.1\" 404 469 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T03:15:44.445Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:43:53.382Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:43:57.268Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:43:59.907Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:44:03.288Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:44:08.185Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:44:11.606Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:45:03.578Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:45:07.284Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:46:51.991Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:46:55.867Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:46:58.218Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:47:01.187Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T03:53:18.756Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T03:53:22.512Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:06:29.084Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:06:32.784Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:06:46.314Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:06:49.905Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:06:52.141Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:06:55.064Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:13:24.981Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:13:26.920Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:13:30.287Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:14:29.234Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:14:36.822Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:14:39.795Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:15:19.430Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:15:22.533Z"}
+{"ip":"::1","level":"error","message":"Cannot read properties of undefined (reading 'findById')","method":"POST","path":"/api/seat-maps/add","stack":"TypeError: Cannot read properties of undefined (reading 'findById')\n    at SeatMapService.createSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\seatMapService.js:8:29)\n    at createSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\seatMapController.js:7:44)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)","timestamp":"2024-12-29T04:15:42.399Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:15:42 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 500 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:15:42.406Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:16:29.177Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:16:31.894Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:16:35.120Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:17:39.341Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:17:42.997Z"}
+{"ip":"::1","level":"error","message":"Bus not found","method":"POST","path":"/api/seat-maps/add","stack":"Error: Bus not found\n    at SeatMapService.createSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\seatMapService.js:12:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\seatMapController.js:7:23)","timestamp":"2024-12-29T04:17:44.942Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:17:44 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 404 448 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:17:44.946Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:18:12 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 201 669 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:18:12.076Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:19:06 +0000] \"PUT /api/bus/6770afb16b92196603c8d421 HTTP/1.1\" 200 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:19:06.143Z"}
+{"ip":"::1","level":"error","message":"Seat map not found","method":"PUT","path":"/api/seat-maps/6770afb16b92196603c8d421","stack":"Error: Seat map not found\n    at SeatMapService.updateSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\seatMapService.js:43:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async updateSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\seatMapController.js:16:23)","timestamp":"2024-12-29T04:20:00.781Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:20:00 +0000] \"PUT /api/seat-maps/6770afb16b92196603c8d421 HTTP/1.1\" 404 459 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:20:00.782Z"}
+{"ip":"::1","level":"error","message":"Bus not found","method":"DELETE","path":"/api/bus/6770af0e6b92196603c8d3e6","stack":"Error: Bus not found\n    at BusService.deleteBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\busService.js:68:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async deleteBus (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\busController.js:25:19)","timestamp":"2024-12-29T04:20:08.569Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:20:08 +0000] \"DELETE /api/bus/6770af0e6b92196603c8d3e6 HTTP/1.1\" 404 429 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:20:08.570Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:20:21 +0000] \"DELETE /api/bus/6770afb16b92196603c8d421 HTTP/1.1\" 200 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:20:21.020Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:20:26 +0000] \"POST /api/bus/add HTTP/1.1\" 201 526 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:20:26.360Z"}
+{"ip":"::1","level":"error","message":"Bus not found","method":"POST","path":"/api/seat-maps/add","stack":"Error: Bus not found\n    at SeatMapService.createSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\seatMapService.js:12:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\seatMapController.js:7:23)","timestamp":"2024-12-29T04:20:40.418Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:20:40 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 404 448 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:20:40.419Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:20:44 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 201 669 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:20:44.675Z"}
+{"ip":"::1","level":"error","message":"Seat map not found","method":"PUT","path":"/api/seat-maps/6770ce0a55df5c89dcd98baf","stack":"Error: Seat map not found\n    at SeatMapService.updateSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\seatMapService.js:43:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async updateSeatMap (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\seatMapController.js:16:23)","timestamp":"2024-12-29T04:21:29.927Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:21:29 +0000] \"PUT /api/seat-maps/6770ce0a55df5c89dcd98baf HTTP/1.1\" 404 459 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:21:29.928Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:21:43 +0000] \"PUT /api/seat-maps/6770ce1c55df5c89dcd98bb6 HTTP/1.1\" 200 670 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:21:43.957Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:22:06 +0000] \"GET /api/seat-maps HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:22:06.308Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:22:24 +0000] \"GET /api/seat-maps/6770cd8355df5c89dcd98b98 HTTP/1.1\" 200 671 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:22:24.977Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:23:00 +0000] \"DELETE /api/seat-maps/6770cd8355df5c89dcd98b98 HTTP/1.1\" 200 669 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:23:00.583Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:23:07 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 201 669 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:23:07.422Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:23:52 +0000] \"GET /api/seat-maps HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:23:52.743Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:25:02 +0000] \"POST /api/seat-maps/add HTTP/1.1\" 201 669 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:25:02.599Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:25:38 +0000] \"POST /api/trip/add HTTP/1.1\" 201 758 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:25:38.548Z"}
+{"ip":"::1","level":"error","message":"Cast to ObjectId failed for value \"add\" (type string) at path \"_id\" for model \"Trip\"","method":"PUT","path":"/api/trip/add","stack":"CastError: Cast to ObjectId failed for value \"add\" (type string) at path \"_id\" for model \"Trip\"\n    at ObjectId.cast (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\schema\\objectid.js:250:11)\n    at SchemaType.applySetters (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\schematype.js:1219:12)\n    at SchemaType.castForQuery (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\schematype.js:1633:15)\n    at cast (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\cast.js:389:32)\n    at Query.cast (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\query.js:4927:12)\n    at Query._castConditions (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\query.js:2237:10)\n    at model.Query._findOne (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\query.js:2533:8)\n    at model.Query.exec (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\mongoose\\lib\\query.js:4447:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async TripService.updateTrip (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\tripService.js:76:20)","timestamp":"2024-12-29T04:30:46.637Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:30:46 +0000] \"PUT /api/trip/add HTTP/1.1\" 500 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:30:46.639Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:31:01 +0000] \"PUT /api/trip/6770cf4255df5c89dcd98c0e HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:31:01.521Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:33:12 +0000] \"PUT /api/trip/6770cf4255df5c89dcd98c0e HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:33:12.235Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:33:25 +0000] \"PUT /api/trip/6770cf4255df5c89dcd98c0e HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:33:25.653Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:33:49 +0000] \"GET /api/trip HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:33:49.012Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:34:24.836Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:34:28.333Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T04:34:31.215Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T04:34:34.073Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:35:32 +0000] \"GET /api/trips HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:35:32.693Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:36:42 +0000] \"GET /api/trips/6770cf4255df5c89dcd98c0e HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:36:42.467Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:37:47 +0000] \"GET /api/trips?status=scheduled&routeId=6770aefd6b92196603c8d3d6&page=1&limit=10 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:37:47.054Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:42:09 +0000] \"GET /api/trips?status=scheduled&routeId=6770aefd6b92196603c8d3d6&page=1&limit=10 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:42:09.616Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:42:22 +0000] \"GET /api/trips?status=scheduled&routeId=6770aefd6b92196603c8d3d6&page=1&limit=10 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:42:22.046Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:42:26 +0000] \"GET /api/trips?status=scheduled&routeId=6770aefd6b92196603c8d3df&page=1&limit=10 HTTP/1.1\" 200 111 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:42:26.075Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:42:30 +0000] \"GET /api/trips?status=scheduled&routeId=6770aefd6b92196603c8d3d6&page=1&limit=10 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:42:30.937Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:45:58 +0000] \"GET /api/bookings/bookings/availableTrips?fromStop=Stop%20A&toStop=Stop%20B&date=2024-12-30 HTTP/1.1\" 404 134 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:45:58.147Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:46:07 +0000] \"GET /api/bookings/availableTrips?fromStop=Stop%20A&toStop=Stop%20B&date=2024-12-30 HTTP/1.1\" 404 125 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:46:07.708Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:46:36 +0000] \"GET /api/bookings/available-trips?fromStop=Stop%20A&toStop=Stop%20B&date=2024-12-30 HTTP/1.1\" 200 81 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:46:36.550Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:47:30 +0000] \"GET /api/bookings/available-trips?fromStop=Maharagama&toStop=Nugegoda&date=2024-12-30 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:47:30.458Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:49:23 +0000] \"GET /api/bookings/605b0f9f9f1b2c001f6e6a7f/seatAvailability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 404 138 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:49:23.504Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:49:37 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seatAvailability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 404 138 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:49:37.097Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:49:58 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seatAvailability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 404 138 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:49:58.113Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:49:59 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seatAvailability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 404 138 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:49:59.614Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:04:50:32 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seat-availability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 200 576 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T04:50:32.465Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:05:00:32 +0000] \"POST /api/bookings/create HTTP/1.1\" 404 67 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T05:00:32.691Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T05:00:50.650Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T05:00:54.269Z"}
+{"ip":"::1","level":"error","message":"Trip not found","method":"POST","path":"/api/bookings/create","stack":"Error: Trip not found\n    at BookingService.createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\bookingService.js:83:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:50:23)","timestamp":"2024-12-29T05:00:57.620Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:05:00:57 +0000] \"POST /api/bookings/create HTTP/1.1\" 404 451 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T05:00:57.623Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:05:01:04 +0000] \"GET /api/bookings/available-trips?fromStop=Maharagama&toStop=Nugegoda&date=2024-12-30 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T05:01:04.100Z"}
+{"ip":"::1","level":"error","message":"One or more selected seats are not available","method":"POST","path":"/api/bookings/create","stack":"Error: One or more selected seats are not available\n    at BookingService.createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\bookingService.js:93:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:50:23)","timestamp":"2024-12-29T05:01:11.328Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:05:01:11 +0000] \"POST /api/bookings/create HTTP/1.1\" 400 511 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T05:01:11.329Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:05:03:17 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 443 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T05:03:17.246Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:05:03:28 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seat-availability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 200 576 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T05:03:28.955Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T06:43:56.749Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T06:44:00.313Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T06:44:04.870Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T06:44:07.842Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T06:46:08.816Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T06:46:12.580Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T06:48:31.336Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T06:48:35.278Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:06:48:38 +0000] \"POST /api/bookings/create HTTP/1.1\" 400 65 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T06:48:38.808Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:06:48:46 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seat-availability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 200 576 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T06:48:46.077Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:06:48:49 +0000] \"GET /api/bookings/available-trips?fromStop=Maharagama&toStop=Nugegoda&date=2024-12-30 HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T06:48:49.117Z"}
+{"ip":"::1","level":"error","message":"E11000 duplicate key error collection: bus_seat_booking.bookings index: trip_1_seat_1_scheduleTime_1_status_1 dup key: { trip: null, seat: null, scheduleTime: null, status: \"pending\" }","method":"POST","path":"/api/bookings/create","stack":"Error: E11000 duplicate key error collection: bus_seat_booking.bookings index: trip_1_seat_1_scheduleTime_1_status_1 dup key: { trip: null, seat: null, scheduleTime: null, status: \"pending\" }\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:49:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T06:50:07.688Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:06:50:07 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 642 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T06:50:07.689Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:06:50:24 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 482 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T06:50:24.554Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:06:50:38 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seat-availability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 200 576 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T06:50:38.094Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:02:06.518Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:02:10.537Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:02:12.851Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:02:16.026Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:02:29.071Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:02:30.971Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:02:33.946Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:04:57.000Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:05:01.273Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:05:03.502Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:05:06.455Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:05:35.842Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:05:39.404Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:05:44 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seat-availability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 200 576 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:05:44.965Z"}
+{"level":"error","message":"Unhandled Rejection: Cannot read properties of undefined (reading 'getPaymentConfig')","stack":"TypeError: Cannot read properties of undefined (reading 'getPaymentConfig')\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:79:40)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:47:12)","timestamp":"2024-12-29T07:05:57.974Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:06:32.002Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:06:35.466Z"}
+{"level":"error","message":"Unhandled Rejection: Cannot read properties of undefined (reading 'getPaymentConfig')","stack":"TypeError: Cannot read properties of undefined (reading 'getPaymentConfig')\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:79:40)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:47:12)","timestamp":"2024-12-29T07:06:52.431Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:08:54.244Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:08:58.013Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:09:03 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 516 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:09:03.410Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:10:45 +0000] \"GET /api/bookings/6770cf4255df5c89dcd98c0e/seat-availability?fromStop=Maharagama&toStop=Nugegoda HTTP/1.1\" 200 576 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:10:45.977Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:12:02.553Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:12:06.228Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:12:09.589Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:12:12.304Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:12:15.258Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:21:51.076Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:21:52.303Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:21:55.520Z"}
+{"ip":"::1","level":"error","message":"Payment configuration not found","method":"POST","path":"/api/bookings/create","stack":"Error: Payment configuration not found\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:53:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T07:22:06.420Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:22:06 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 1518 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:22:06.425Z"}
+{"ip":"::1","level":"error","message":"Payment configuration not found","method":"POST","path":"/api/bookings/create","stack":"Error: Payment configuration not found\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:53:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T07:22:16.677Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:22:16 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 1518 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:22:16.678Z"}
+{"level":"info","message":"Server closed","timestamp":"2024-12-29T07:22:43.303Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:22:49.427Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:22:52.609Z"}
+{"ip":"::1","level":"error","message":"Payment configuration not found","method":"POST","path":"/api/bookings/create","stack":"Error: Payment configuration not found\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:53:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T07:22:55.310Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:22:55 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 1518 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:22:55.314Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:24:32.006Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:24:35.468Z"}
+{"ip":"::1","level":"error","message":"Payment configuration not found","method":"POST","path":"/api/bookings/create","stack":"Error: Payment configuration not found\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:53:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T07:24:37.658Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:24:37 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 1518 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:24:37.662Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:25:14.012Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:25:22.221Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:25:26.406Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:25:29.397Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:25:34 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 516 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:25:34.767Z"}
+{"ip":"::1","level":"error","message":"E11000 duplicate key error collection: bus_seat_booking.bookings index: trip_1_seat_1_scheduleTime_1_status_1 dup key: { trip: null, seat: null, scheduleTime: null, status: \"pending\" }","method":"POST","path":"/api/bookings/create","stack":"Error: E11000 duplicate key error collection: bus_seat_booking.bookings index: trip_1_seat_1_scheduleTime_1_status_1 dup key: { trip: null, seat: null, scheduleTime: null, status: \"pending\" }\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:47:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T07:29:33.124Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:29:33 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 642 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:29:33.125Z"}
+{"ip":"::1","level":"error","message":"E11000 duplicate key error collection: bus_seat_booking.bookings index: trip_1_seat_1_scheduleTime_1_status_1 dup key: { trip: null, seat: null, scheduleTime: null, status: \"pending\" }","method":"POST","path":"/api/bookings/create","stack":"Error: E11000 duplicate key error collection: bus_seat_booking.bookings index: trip_1_seat_1_scheduleTime_1_status_1 dup key: { trip: null, seat: null, scheduleTime: null, status: \"pending\" }\n    at createBooking (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\controllers\\bookingController.js:47:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2024-12-29T07:29:53.601Z"}
+{"level":"info","message":"::1 - - [29/Dec/2024:07:29:53 +0000] \"POST /api/bookings/create HTTP/1.1\" 500 642 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-29T07:29:53.602Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T07:31:08.670Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T07:31:12.052Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T08:50:24.520Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-29T08:50:30.462Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-29T08:50:33.882Z"}

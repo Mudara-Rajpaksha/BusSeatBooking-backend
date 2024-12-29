@@ -1,67 +1,68 @@
 const mongoose = require('mongoose');
-
-const isValidTimeFormat = (time) => {
-  const timeRegex = /^(0?[1-9]|1[0-2]):00 (AM|PM)$/;
-  return timeRegex.test(time);
-};
-
 const routeSchema = new mongoose.Schema(
   {
-    origin: {
+    routeNumber: {
       type: String,
       required: true,
-      trim: true,
+      unique: true,
+      index: true,
     },
-    destination: {
+    startLocation: {
       type: String,
       required: true,
-      trim: true,
     },
-    schedule: {
-      type: [String],
+    endLocation: {
+      type: String,
       required: true,
-      validate: {
-        validator: function (schedules) {
-          if (!Array.isArray(schedules) || schedules.length === 0) {
-            return false;
-          }
-          return schedules.every((time) => isValidTimeFormat(time));
-        },
-        message: 'Invalid schedule time format. Must be in HH:00 AM/PM format',
-      },
     },
-    operator: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-      validate: {
-        validator: async function (operatorId) {
-          const user = await mongoose.model('User').findById(operatorId);
-          return user && user.role === 'operator';
-        },
-        message: 'Invalid operator ID or user is not an operator',
-      },
-    },
-    price: {
+    distance: {
       type: Number,
       required: true,
-      min: 0,
     },
-    createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+    stops: [
+      {
+        name: {
+          type: String,
+          required: true,
+        },
+        distance: {
+          type: Number,
+          required: true,
+        },
+        timeFromStart: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
+    fare: {
+      type: Number,
       required: true,
     },
-    isActive: {
-      type: Boolean,
-      default: true,
+    schedules: [
+      {
+        departureTime: String,
+        arrivalTime: String,
+        frequency: Number,
+        daysOperating: [String],
+      },
+    ],
+    buses: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bus',
+      },
+    ],
+    status: {
+      type: String,
+      enum: ['active', 'suspended', 'cancelled'],
+      default: 'active',
     },
   },
   {
     timestamps: true,
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
   }
 );
 
+routeSchema.index({ routeNumber: 1, status: 1 });
 module.exports = mongoose.model('Route', routeSchema);

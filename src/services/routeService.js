@@ -1,62 +1,105 @@
+const mongoose = require('mongoose');
 const Route = require('../models/Route');
-const User = require('../models/User');
 const { ApiError } = require('../utils/responses');
 
 class RouteService {
-  async addRoute(routeData, createdBy) {
-    const { origin, destination, schedule, operator, price } = routeData;
+  async createRoute(routeData) {
+    try {
+      if (!routeData.routeNumber || !routeData.startLocation || !routeData.endLocation) {
+        throw new ApiError('Missing required fields', 400);
+      }
 
-    const operatorUser = await User.findOne({ _id: operator, role: 'operator' });
-    if (!operatorUser) {
-      throw new ApiError('Invalid operator or operator not found', 404);
+      if (routeData.fare && routeData.schedules && routeData.schedules.length > 0) {
+        const route = new Route(routeData);
+        return await route.save();
+      }
+
+      throw new ApiError('Invalid route data', 400);
+    } catch (error) {
+      console.error('Error during createRoute:', error.message, error.stack);
+      throw error;
     }
+  }
 
-    const existingRoute = await Route.findOne({
-      origin,
-      destination,
-      schedule,
-      operator,
-      isActive: true,
-    });
+  async updateRoute(routeId, updateData) {
+    try {
+      const route = await Route.findByIdAndUpdate(routeId, updateData, { new: true });
 
-    if (existingRoute) {
-      throw new ApiError('Route already exists', 409);
+      if (!route) {
+        throw new ApiError('Route not found', 404);
+      }
+
+      return route;
+    } catch (error) {
+      console.error('Error during updateRoute:', error.message, error.stack);
+      throw error;
     }
+  }
 
-    const route = new Route({
-      origin,
-      destination,
-      schedule,
-      operator,
-      price,
-      createdBy,
-    });
+  async deleteRoute(routeId) {
+    try {
+      const route = await Route.findByIdAndDelete(routeId);
 
-    await route.save();
+      if (!route) {
+        throw new ApiError('Route not found', 404);
+      }
 
-    await route.populate('operator', 'username role');
-    return route;
+      return route;
+    } catch (error) {
+      console.error('Error during deleteRoute:', error.message, error.stack);
+      throw error;
+    }
+  }
+
+  async getRoute(routeId) {
+    try {
+      const route = await Route.findById(routeId).populate('buses');
+
+      if (!route) {
+        throw new ApiError('Route not found', 404);
+      }
+
+      return route;
+    } catch (error) {
+      console.error('Error during getRoute:', error.message, error.stack);
+      throw error;
+    }
   }
 
   async getAllRoutes(filters = {}, options = {}) {
-    const query = Route.find(filters).populate('operator', 'username role');
+    const query = {};
+
+    if (filters.status) {
+      query.status = filters.status;
+    }
+
+    if (filters.routeNumber) {
+      query.routeNumber = filters.routeNumber;
+    }
+
+    const routesQuery = Route.find(query).populate('buses');
 
     if (options.sort) {
-      query.sort(options.sort);
+      routesQuery.sort(options.sort);
+    } else {
+      routesQuery.sort('-routeNumber');
     }
 
-    if (options.select) {
-      query.select(options.select);
+    if (options.page && options.limit) {
+      const page = parseInt(options.page, 10);
+      const limit = parseInt(options.limit, 10);
+      const skip = (page - 1) * limit;
+      routesQuery.skip(skip).limit(limit);
     }
 
-    if (options.limit) {
-      query.limit(parseInt(options.limit));
-    }
-    if (options.skip) {
-      query.skip(parseInt(options.skip));
-    }
+    const [routes, total] = await Promise.all([routesQuery.exec(), Route.countDocuments(query)]);
 
-    return await query.exec();
+    return {
+      routes,
+      total,
+      page: options.page ? parseInt(options.page, 10) : 1,
+      limit: options.limit ? parseInt(options.limit, 10) : total,
+    };
   }
 }
 

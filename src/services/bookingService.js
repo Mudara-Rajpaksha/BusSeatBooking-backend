@@ -1,211 +1,292 @@
-const mongoose = require('mongoose');
-const Booking = require('../models/Booking');
-const Bus = require('../models/Bus');
-const Trip = require('../models/Trip');
+const { SeatMap, Trip, Booking } = require('../models/Booking');
 const { ApiError } = require('../utils/responses');
 
 class BookingService {
-  async createBooking(bookingData, userId) {
-    let session = null;
-    const { tripId, seatNumber } = bookingData;
-
+  async findAvailableTrips(fromStop, toStop, date) {
     try {
-      session = await mongoose.startSession();
-      session.startTransaction();
+      const trips = await Trip.find({
+        departureDate: {
+          $gte: new Date(date),
+          $lt: new Date(new Date(date).setDate(new Date(date).getDate() + 1)),
+        },
+        'intermediateStops.stopName': {
+          $all: [fromStop, toStop],
+        },
+        status: 'scheduled',
+        availableSeats: { $gt: 0 },
+      }).populate('routeId busId');
 
-      if (!mongoose.Types.ObjectId.isValid(tripId)) {
-        throw new ApiError('Invalid tripId provided', 400);
-      }
-      if (!seatNumber) {
-        throw new ApiError('Seat number is required', 400);
-      }
+      return trips.map((trip) => {
+        const fromStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === fromStop);
+        const toStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === toStop);
+        const fare =
+          trip.intermediateStops[toStopIndex].fareFromStart - trip.intermediateStops[fromStopIndex].fareFromStart;
 
-      const trip = await Trip.findById(tripId).populate('bus').populate('route').session(session);
-
-      if (!trip) {
-        throw new ApiError('Trip not found', 404);
-      }
-      if (trip.availableSeats <= 0) {
-        throw new ApiError('No seats available for this trip', 400);
-      }
-
-      const seat = trip.bus.seats.find((s) => s.seatNumber === seatNumber && !s.isBooked);
-
-      if (!seat) {
-        throw new ApiError('Seat not available or already booked', 400);
-      }
-
-      const booking = new Booking({
-        trip: tripId,
-        user: userId,
-        seat: seatNumber,
-        price: trip.route.price,
-        status: 'CONFIRMED',
+        return {
+          ...trip.toObject(),
+          calculatedFare: fare,
+        };
       });
-
-      const [updatedBus, updatedTrip] = await Promise.all([
-        Bus.findOneAndUpdate(
-          {
-            _id: trip.bus._id,
-            'seats.seatNumber': seatNumber,
-          },
-          {
-            $set: { 'seats.$.isBooked': true },
-          },
-          { session, new: true }
-        ),
-        Trip.findByIdAndUpdate(tripId, { $inc: { availableSeats: -1 } }, { session, new: true }),
-        booking.save({ session }),
-      ]);
-
-      if (!updatedBus || !updatedTrip) {
-        throw new ApiError('Failed to update booking information', 500);
-      }
-
-      await session.commitTransaction();
-
-      return await booking.populate([
-        { path: 'trip', populate: ['route', 'bus'] },
-        { path: 'user', select: 'name email' },
-      ]);
     } catch (error) {
-      if (session) {
-        await session.abortTransaction();
-      }
-      console.error('Error during createBooking:', error.message, {
-        tripId,
-        userId,
-        seatNumber,
-        errorStack: error.stack,
-      });
+      console.error('Error finding available trips:', error);
       throw error;
-    } finally {
-      if (session) {
-        await session.endSession();
-      }
     }
   }
 
-  async cancelBooking(bookingId, userId) {
-    let session = null;
-
+  async getSeatAvailability(tripId, fromStop, toStop) {
     try {
-      session = await mongoose.startSession();
-      session.startTransaction();
+      const trip = await Trip.findById(tripId);
+      if (!trip) {
+        throw new ApiError('Trip not found', 404);
+      }
 
-      const booking = await Booking.findById(bookingId).session(session);
+      const overlappingBookings = await Booking.find({
+        tripId,
+        status: 'confirmed',
+        $or: [
+          {
+            fromStop: { $gte: fromStop, $lt: toStop },
+          },
+          {
+            toStop: { $gt: fromStop, $lte: toStop },
+          },
+        ],
+      });
+
+      const seatMap = await SeatMap.findOne({ busId: trip.busId });
+
+      const availableSeats = seatMap.layout.map((seat) => ({
+        ...seat.toObject(),
+        _id: seat._id,
+        isAvailable: !overlappingBookings.some((booking) => booking.seatIds.includes(seat._id.toString())),
+      }));
+
+      return availableSeats;
+    } catch (error) {
+      console.error('Error getting seat availability:', error);
+      throw error;
+    }
+  }
+
+  async createBooking(bookingData) {
+    try {
+      const { tripId, userId, seatIds, fromStop, toStop } = bookingData;
+
+      const trip = await Trip.findById(tripId);
+      if (!trip) {
+        throw new ApiError('Trip not found', 404);
+      }
+
+      if (trip.status !== 'scheduled') {
+        throw new ApiError('Trip is not available for booking', 400);
+      }
+
+      const seatMap = await SeatMap.findOne({ busId: trip.busId });
+      if (!seatMap) {
+        throw new ApiError('Seat map not found for this bus', 404);
+      }
+
+      const validSeatIds = seatMap.layout.map((seat) => seat._id.toString());
+      const areValidSeatIds = seatIds.every((seatId) => validSeatIds.includes(seatId));
+
+      if (!areValidSeatIds) {
+        throw new ApiError('One or more invalid seat IDs', 400);
+      }
+
+      const seatAvailability = await this.getSeatAvailability(tripId, fromStop, toStop);
+      const areSeatsAvailable = seatIds.every((seatId) =>
+        seatAvailability.some((seat) => seat._id.toString() === seatId && seat.isAvailable)
+      );
+
+      if (!areSeatsAvailable) {
+        throw new ApiError('One or more selected seats are not available', 400);
+      }
+
+      const selectedSeats = seatMap.layout.filter((seat) => seatIds.includes(seat._id.toString()));
+      const seatNumbers = selectedSeats.map((seat) => seat.seatNumber);
+
+      const fromStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === fromStop);
+      const toStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === toStop);
+      const farePerSeat =
+        trip.intermediateStops[toStopIndex].fareFromStart - trip.intermediateStops[fromStopIndex].fareFromStart;
+      const totalFare = farePerSeat * seatIds.length;
+
+      const booking = new Booking({
+        tripId,
+        userId,
+        seatIds,
+        seatNumbers,
+        fromStop,
+        toStop,
+        totalFare,
+        status: 'pending',
+      });
+
+      await booking.save();
+
+      await Trip.findByIdAndUpdate(tripId, {
+        $inc: { availableSeats: -seatIds.length },
+      });
+
+      return booking;
+    } catch (error) {
+      console.error('Error creating booking:', error);
+      throw error;
+    }
+  }
+
+  async updateBooking(bookingId, updateData) {
+    try {
+      const booking = await Booking.findById(bookingId);
+      if (!booking) {
+        throw new ApiError('Booking not found', 404);
+      }
+
+      if (booking.status === 'cancelled') {
+        throw new ApiError('Cannot update cancelled booking', 400);
+      }
+
+      if (booking.status === 'confirmed' && booking.paymentStatus === 'completed') {
+        throw new ApiError('Cannot update confirmed and paid booking', 400);
+      }
+
+      const trip = await Trip.findById(booking.tripId);
+      if (!trip) {
+        throw new ApiError('Trip not found', 404);
+      }
+
+      if (updateData.seatIds) {
+        await Trip.findByIdAndUpdate(booking.tripId, {
+          $inc: { availableSeats: booking.seatIds.length },
+        });
+
+        const seatAvailability = await this.getSeatAvailability(
+          booking.tripId,
+          updateData.fromStop || booking.fromStop,
+          updateData.toStop || booking.toStop
+        );
+
+        const areSeatsAvailable = updateData.seatIds.every((seatId) =>
+          seatAvailability.some((seat) => seat._id.toString() === seatId && seat.isAvailable)
+        );
+
+        if (!areSeatsAvailable) {
+          throw new ApiError('One or more selected seats are not available', 400);
+        }
+
+        const seatMap = await SeatMap.findOne({ busId: trip.busId });
+        const selectedSeats = seatMap.layout.filter((seat) => updateData.seatIds.includes(seat._id.toString()));
+        updateData.seatNumbers = selectedSeats.map((seat) => seat.seatNumber);
+
+        await Trip.findByIdAndUpdate(booking.tripId, {
+          $inc: { availableSeats: -updateData.seatIds.length },
+        });
+      }
+
+      if (updateData.fromStop || updateData.toStop || updateData.seatIds) {
+        const fromStop = updateData.fromStop || booking.fromStop;
+        const toStop = updateData.toStop || booking.toStop;
+        const seatCount = updateData.seatIds ? updateData.seatIds.length : booking.seatIds.length;
+
+        const fromStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === fromStop);
+        const toStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === toStop);
+        const farePerSeat =
+          trip.intermediateStops[toStopIndex].fareFromStart - trip.intermediateStops[fromStopIndex].fareFromStart;
+        updateData.totalFare = farePerSeat * seatCount;
+      }
+
+      const updatedBooking = await Booking.findByIdAndUpdate(bookingId, { $set: updateData }, { new: true });
+
+      return updatedBooking;
+    } catch (error) {
+      console.error('Error updating booking:', error);
+      throw error;
+    }
+  }
+
+  async cancelBooking(bookingId) {
+    try {
+      const booking = await Booking.findById(bookingId);
+      if (!booking) {
+        throw new ApiError('Booking not found', 404);
+      }
+
+      if (booking.status === 'cancelled') {
+        throw new ApiError('Booking is already cancelled', 400);
+      }
+
+      const trip = await Trip.findById(booking.tripId);
+      if (!trip) {
+        throw new ApiError('Trip not found', 404);
+      }
+
+      if (trip.status !== 'scheduled') {
+        throw new ApiError('Cannot cancel booking for trip that has started or completed', 400);
+      }
+
+      const updatedBooking = await Booking.findByIdAndUpdate(
+        bookingId,
+        {
+          $set: {
+            status: 'cancelled',
+            paymentStatus: booking.paymentStatus === 'completed' ? 'refunded' : 'cancelled',
+          },
+        },
+        { new: true }
+      );
+
+      await Trip.findByIdAndUpdate(booking.tripId, {
+        $inc: { availableSeats: booking.seatIds.length },
+      });
+
+      return updatedBooking;
+    } catch (error) {
+      console.error('Error cancelling booking:', error);
+      throw error;
+    }
+  }
+
+  async getBookingDetails(bookingId) {
+    try {
+      const booking = await Booking.findById(bookingId).populate({
+        path: 'tripId',
+        populate: {
+          path: 'routeId busId',
+        },
+      });
 
       if (!booking) {
         throw new ApiError('Booking not found', 404);
       }
 
-      if (booking.status === 'CANCELLED') {
-        throw new ApiError('Booking is already cancelled', 400);
-      }
-
-      if (!booking.user.equals(userId)) {
-        throw new ApiError('You are not authorized to cancel this booking', 403);
-      }
-
-      const trip = await Trip.findById(booking.trip).populate('bus').session(session);
-
-      if (!trip) {
-        throw new ApiError('Associated trip not found', 404);
-      }
-
-      const seat = trip.bus.seats.find((s) => s.seatNumber === booking.seat && s.isBooked);
-
-      if (!seat) {
-        throw new ApiError('Seat not found or not booked', 400);
-      }
-
-      const [updatedBus, updatedTrip] = await Promise.all([
-        Bus.findOneAndUpdate(
-          { _id: trip.bus._id, 'seats.seatNumber': booking.seat },
-          { $set: { 'seats.$.isBooked': false } },
-          { session, new: true }
-        ),
-        Trip.findByIdAndUpdate(booking.trip, { $inc: { availableSeats: 1 } }, { session, new: true }),
-      ]);
-
-      if (!updatedBus || !updatedTrip) {
-        throw new ApiError('Failed to update seat or trip information', 500);
-      }
-
-      booking.status = 'CANCELLED';
-      await booking.save({ session });
-
-      await session.commitTransaction();
-
-      return await booking.populate([
-        { path: 'trip', populate: ['route', 'bus'] },
-        { path: 'user', select: 'name email' },
-      ]);
+      return booking;
     } catch (error) {
-      if (session) {
-        await session.abortTransaction();
-      }
-      console.error('Error during cancelBooking:', error.message, {
-        bookingId,
-        userId,
-        errorStack: error.stack,
-      });
+      console.error('Error getting booking details:', error);
       throw error;
-    } finally {
-      if (session) {
-        await session.endSession();
-      }
     }
   }
 
-  async getAllBookings(filters = {}, options = {}, userId = null) {
-    const query = {};
+  async getUserBookings(userId, status) {
+    try {
+      const query = { userId };
+      if (status) {
+        query.status = status;
+      }
 
-    if (userId) {
-      query.user = userId;
+      const bookings = await Booking.find(query)
+        .populate({
+          path: 'tripId',
+          populate: {
+            path: 'routeId busId',
+          },
+        })
+        .sort({ bookingDate: -1 });
+
+      return bookings;
+    } catch (error) {
+      console.error('Error getting user bookings:', error);
+      throw error;
     }
-
-    if (filters.status) {
-      query.status = filters.status;
-    }
-    if (filters.tripId) {
-      query.trip = filters.tripId;
-    }
-    if (filters.startDate && filters.endDate) {
-      query.bookedAt = {
-        $gte: new Date(filters.startDate),
-        $lte: new Date(filters.endDate),
-      };
-    }
-
-    const bookingsQuery = Booking.find(query)
-      .populate({
-        path: 'trip',
-        populate: ['route', 'bus'],
-      })
-      .populate('user', 'username');
-
-    if (options.sort) {
-      bookingsQuery.sort(options.sort);
-    } else {
-      bookingsQuery.sort('-bookedAt');
-    }
-
-    if (options.page && options.limit) {
-      const page = parseInt(options.page, 10);
-      const limit = parseInt(options.limit, 10);
-      const skip = (page - 1) * limit;
-      bookingsQuery.skip(skip).limit(limit);
-    }
-
-    const [bookings, total] = await Promise.all([bookingsQuery.exec(), Booking.countDocuments(query)]);
-
-    return {
-      bookings,
-      total,
-      page: options.page ? parseInt(options.page, 10) : 1,
-      limit: options.limit ? parseInt(options.limit, 10) : total,
-    };
   }
 }
 

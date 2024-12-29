@@ -2,13 +2,11 @@ const express = require('express');
 const router = express.Router();
 const bookingController = require('../controllers/bookingController');
 const { authenticate, authorize } = require('../middleware/auth');
-const { validateCreateBooking } = require('../validators/bookingValidator');
 
-router.use(authenticate);
+router.get('/available-trips', bookingController.findAvailableTrips);
 
-router.post('/add', authorize('commuter'), validateCreateBooking, bookingController.createBooking);
-router.get('/my-bookings', authorize('commuter'), bookingController.getAllBookings);
-router.get('/', authorize('operator'), bookingController.getAllBookings);
-router.put('/:bookingId/cancel', authorize('commuter'), bookingController.cancelBooking);
+router.get('/:tripId/seat-availability', bookingController.getSeatAvailability);
+
+router.post('/create', bookingController.createBooking);
 
 module.exports = router;
