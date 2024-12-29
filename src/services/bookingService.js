@@ -58,7 +58,7 @@ class BookingService {
       const availableSeats = seatMap.layout.map((seat) => ({
         ...seat.toObject(),
         _id: seat._id,
-        isAvailable: !overlappingBookings.some((booking) => booking.seatIds.includes(seat._id.toString())),
+        isAvailable: !overlappingBookings.some((booking) => booking.seatIds.includes(seat._id)),
       }));
 
       return availableSeats;
@@ -70,7 +70,7 @@ class BookingService {
 
   async createBooking(bookingData) {
     try {
-      const { tripId, userId, seatIds, fromStop, toStop } = bookingData;
+      const { tripId, userId, seatIds, fromStop, toStop, paymentDetails } = bookingData;
 
       const trip = await Trip.findById(tripId);
       if (!trip) {
@@ -79,6 +79,10 @@ class BookingService {
 
       if (trip.status !== 'scheduled') {
         throw new ApiError('Trip is not available for booking', 400);
+      }
+
+      if (trip.paymentRequired && !paymentDetails) {
+        throw new ApiError('Payment details are required for this booking', 400);
       }
 
       const seatMap = await SeatMap.findOne({ busId: trip.busId });
@@ -111,6 +115,9 @@ class BookingService {
         trip.intermediateStops[toStopIndex].fareFromStart - trip.intermediateStops[fromStopIndex].fareFromStart;
       const totalFare = farePerSeat * seatIds.length;
 
+      const bookingStatus = trip.paymentRequired ? 'pending' : 'confirmed';
+      const paymentStatus = trip.paymentRequired ? 'pending' : 'not_required';
+
       const booking = new Booking({
         tripId,
         userId,
@@ -119,7 +126,10 @@ class BookingService {
         fromStop,
         toStop,
         totalFare,
-        status: 'pending',
+        status: bookingStatus,
+        paymentStatus: paymentStatus,
+        paymentDetails: trip.paymentRequired ? paymentDetails : undefined,
+        expiryDate: trip.paymentRequired ? new Date(Date.now() + 30 * 60000) : undefined,
       });
 
       await booking.save();
@@ -146,57 +156,64 @@ class BookingService {
         throw new ApiError('Cannot update cancelled booking', 400);
       }
 
-      if (booking.status === 'confirmed' && booking.paymentStatus === 'completed') {
-        throw new ApiError('Cannot update confirmed and paid booking', 400);
-      }
-
       const trip = await Trip.findById(booking.tripId);
       if (!trip) {
         throw new ApiError('Trip not found', 404);
       }
 
-      if (updateData.seatIds) {
-        await Trip.findByIdAndUpdate(booking.tripId, {
-          $inc: { availableSeats: booking.seatIds.length },
-        });
-
-        const seatAvailability = await this.getSeatAvailability(
-          booking.tripId,
-          updateData.fromStop || booking.fromStop,
-          updateData.toStop || booking.toStop
-        );
-
-        const areSeatsAvailable = updateData.seatIds.every((seatId) =>
-          seatAvailability.some((seat) => seat._id.toString() === seatId && seat.isAvailable)
-        );
-
-        if (!areSeatsAvailable) {
-          throw new ApiError('One or more selected seats are not available', 400);
+      if (trip.paymentRequired) {
+        if (booking.paymentStatus === 'completed') {
+          throw new ApiError('Cannot update a paid booking', 400);
         }
 
-        const seatMap = await SeatMap.findOne({ busId: trip.busId });
-        const selectedSeats = seatMap.layout.filter((seat) => updateData.seatIds.includes(seat._id.toString()));
-        updateData.seatNumbers = selectedSeats.map((seat) => seat.seatNumber);
-
-        await Trip.findByIdAndUpdate(booking.tripId, {
-          $inc: { availableSeats: -updateData.seatIds.length },
-        });
+        if (Object.keys(updateData).some((key) => key !== 'paymentDetails')) {
+          throw new ApiError('Only payment details can be updated for bookings requiring payment', 400);
+        }
       }
 
-      if (updateData.fromStop || updateData.toStop || updateData.seatIds) {
-        const fromStop = updateData.fromStop || booking.fromStop;
-        const toStop = updateData.toStop || booking.toStop;
-        const seatCount = updateData.seatIds ? updateData.seatIds.length : booking.seatIds.length;
+      if (!trip.paymentRequired) {
+        if (updateData.seatIds) {
+          await Trip.findByIdAndUpdate(booking.tripId, {
+            $inc: { availableSeats: booking.seatIds.length },
+          });
 
-        const fromStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === fromStop);
-        const toStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === toStop);
-        const farePerSeat =
-          trip.intermediateStops[toStopIndex].fareFromStart - trip.intermediateStops[fromStopIndex].fareFromStart;
-        updateData.totalFare = farePerSeat * seatCount;
+          const seatAvailability = await this.getSeatAvailability(
+            booking.tripId,
+            updateData.fromStop || booking.fromStop,
+            updateData.toStop || booking.toStop
+          );
+
+          const areSeatsAvailable = updateData.seatIds.every((seatId) =>
+            seatAvailability.some((seat) => seat._id.toString() === seatId && seat.isAvailable)
+          );
+
+          if (!areSeatsAvailable) {
+            throw new ApiError('One or more selected seats are not available', 400);
+          }
+
+          const seatMap = await SeatMap.findOne({ busId: trip.busId });
+          const selectedSeats = seatMap.layout.filter((seat) => updateData.seatIds.includes(seat._id.toString()));
+          updateData.seatNumbers = selectedSeats.map((seat) => seat.seatNumber);
+
+          await Trip.findByIdAndUpdate(booking.tripId, {
+            $inc: { availableSeats: -updateData.seatIds.length },
+          });
+        }
+
+        if (updateData.fromStop || updateData.toStop || updateData.seatIds) {
+          const fromStop = updateData.fromStop || booking.fromStop;
+          const toStop = updateData.toStop || booking.toStop;
+          const seatCount = updateData.seatIds ? updateData.seatIds.length : booking.seatIds.length;
+
+          const fromStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === fromStop);
+          const toStopIndex = trip.intermediateStops.findIndex((stop) => stop.stopName === toStop);
+          const farePerSeat =
+            trip.intermediateStops[toStopIndex].fareFromStart - trip.intermediateStops[fromStopIndex].fareFromStart;
+          updateData.totalFare = farePerSeat * seatCount;
+        }
       }
 
       const updatedBooking = await Booking.findByIdAndUpdate(bookingId, { $set: updateData }, { new: true });
-
       return updatedBooking;
     } catch (error) {
       console.error('Error updating booking:', error);

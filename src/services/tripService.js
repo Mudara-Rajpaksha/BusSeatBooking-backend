@@ -44,23 +44,56 @@ class TripService {
         throw new ApiError('Seat map not found for this bus', 404);
       }
 
-      const intermediateStops = route.stops.map((stop, index) => ({
-        stopName: stop.name,
-        arrivalTime: new Date(new Date(tripData.departureDate).getTime() + stop.timeFromStart * 60000),
-        departureTime: new Date(new Date(tripData.departureDate).getTime() + (stop.timeFromStart + 5) * 60000),
-        fareFromStart: (route.fare / route.distance) * stop.distance,
-      }));
+      const departureDate = new Date(tripData.departureDate);
+      if (isNaN(departureDate.getTime())) {
+        throw new ApiError('Invalid departure date', 400);
+      }
+
+      const arrivalDate = new Date(tripData.arrivalDate);
+      if (isNaN(arrivalDate.getTime())) {
+        throw new ApiError('Invalid arrival date', 400);
+      }
+
+      const intermediateStops = route.stops.map((stop) => {
+        if (typeof stop.timeFromStart !== 'string') {
+          throw new ApiError(`Invalid timeFromStart for stop ${stop.name}`, 400);
+        }
+
+        const timeFromStart = parseFloat(stop.timeFromStart);
+        if (isNaN(timeFromStart)) {
+          throw new ApiError(`Invalid timeFromStart for stop ${stop.name}`, 400);
+        }
+
+        const arrivalTime = new Date(departureDate.getTime() + timeFromStart * 60000);
+        const departureTime = new Date(arrivalTime.getTime() + 5 * 60000);
+
+        return {
+          stopName: stop.name,
+          arrivalTime,
+          departureTime,
+          fareFromStart: (route.fare / route.distance) * stop.distance,
+        };
+      });
 
       const trip = new Trip({
-        ...tripData,
-        intermediateStops,
+        routeId: tripData.routeId,
+        busId: tripData.busId,
+        departureDate: tripData.departureDate,
+        arrivalDate: tripData.arrivalDate,
         availableSeats: seatMap.layout.filter((seat) => seat.isActive).length,
         status: 'scheduled',
+        intermediateStops,
+        paymentRequired: tripData.paymentRequired || false,
       });
 
       return await trip.save();
     } catch (error) {
       console.error('Error creating trip:', error);
+      if (error.message.includes('Cast to date failed')) {
+        console.error(
+          'The issue might be with one of the date fields (departureDate, arrivalDate, or intermediate stops).'
+        );
+      }
       throw error;
     }
   }

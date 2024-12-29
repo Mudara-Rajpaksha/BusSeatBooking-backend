@@ -1,28 +1,12 @@
 const nodemailer = require('nodemailer');
 const { promisify } = require('util');
 const sleep = promisify(setTimeout);
-const winston = require('winston');
+const logger = require('../config/logger');
 const emailConfig = require('../config/email.config');
 
 class EmailService {
   constructor() {
     this.transporter = nodemailer.createTransport(emailConfig.smtp);
-    this.logger = winston.createLogger({
-      level: 'info',
-      format: winston.format.json(),
-      transports: [
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'combined.log' }),
-      ],
-    });
-
-    if (process.env.NODE_ENV !== 'production') {
-      this.logger.add(
-        new winston.transports.Console({
-          format: winston.format.simple(),
-        })
-      );
-    }
   }
 
   async sendEmail(options) {
@@ -40,7 +24,7 @@ class EmailService {
         await this.validateEmailOptions(mailOptions);
         const info = await this.transporter.sendMail(mailOptions);
 
-        this.logger.info('Email sent successfully', {
+        logger.info('Email sent successfully', {
           messageId: info.messageId,
           to: options.to,
           subject: options.subject,
@@ -48,7 +32,7 @@ class EmailService {
 
         return info;
       } catch (error) {
-        this.logger.error('Error sending email', {
+        logger.error('Error sending email', {
           attempt,
           error: error.message,
           to: options.to,
@@ -86,13 +70,15 @@ class EmailService {
   async verifyConnection() {
     try {
       await this.transporter.verify();
-      this.logger.info('SMTP connection verified successfully');
+      logger.info('SMTP connection verified successfully');
       return true;
     } catch (error) {
-      this.logger.error('SMTP connection verification failed', {
+      logger.error('SMTP connection verification failed', {
         error: error.message,
       });
       throw error;
     }
   }
 }
+
+module.exports = new EmailService();

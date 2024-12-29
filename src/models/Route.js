@@ -30,7 +30,7 @@ const routeSchema = new mongoose.Schema(
           required: true,
         },
         timeFromStart: {
-          type: Number,
+          type: String,
           required: true,
         },
       },

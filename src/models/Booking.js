@@ -76,6 +76,10 @@ const tripSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    paymentRequired: {
+      type: Boolean,
+      default: false,
+    },
     intermediateStops: [
       {
         stopName: {

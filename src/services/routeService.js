@@ -10,6 +10,24 @@ class RouteService {
       }
 
       if (routeData.fare && routeData.schedules && routeData.schedules.length > 0) {
+        const { departureTime, arrivalTime } = routeData.schedules[0];
+
+        const stops = [
+          {
+            name: routeData.startLocation,
+            distance: 0,
+            timeFromStart: departureTime,
+          },
+          ...routeData.stops,
+          {
+            name: routeData.endLocation,
+            distance: routeData.distance,
+            timeFromStart: arrivalTime,
+          },
+        ];
+
+        routeData.stops = stops;
+
         const route = new Route(routeData);
         return await route.save();
       }
