@@ -2,112 +2,120 @@ module.exports = {
   schemas: {
     RouteInput: {
       type: 'object',
-      required: ['origin', 'destination', 'schedule', 'operator', 'price'],
       properties: {
-        origin: {
+        routeNumber: {
           type: 'string',
-          description: 'The origin of the route',
+          description: 'The number of the route',
         },
-        destination: {
+        startLocation: {
           type: 'string',
-          description: 'The destination of the route',
+          description: 'The starting location of the route',
         },
-        schedule: {
+        endLocation: {
+          type: 'string',
+          description: 'The ending location of the route',
+        },
+        fare: {
+          type: 'number',
+          description: 'The fare for the route',
+        },
+        distance: {
+          type: 'number',
+          description: 'The total distance of the route',
+        },
+        schedules: {
           type: 'array',
           items: {
-            type: 'string',
-            description: 'Schedule in HH:00 AM/PM format',
+            type: 'object',
+            properties: {
+              departureTime: {
+                type: 'string',
+                format: 'date-time',
+              },
+              arrivalTime: {
+                type: 'string',
+                format: 'date-time',
+              },
+            },
           },
-          description: 'The schedule of the route',
         },
-        operator: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The ID of the operator for the route',
-        },
-        price: {
-          type: 'number',
-          description: 'The price for the route',
-        },
-      },
-    },
-    RouteResponse: {
-      type: 'object',
-      properties: {
-        message: {
-          type: 'string',
-          description: 'Success message for the operation',
-        },
-        data: {
-          type: 'object',
-          description: 'Route data',
-        },
-      },
-    },
-    RouteDetails: {
-      type: 'object',
-      properties: {
-        id: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The unique ID of the route',
-        },
-        origin: {
-          type: 'string',
-          description: 'The origin of the route',
-        },
-        destination: {
-          type: 'string',
-          description: 'The destination of the route',
-        },
-        schedule: {
+        stops: {
           type: 'array',
           items: {
-            type: 'string',
-            description: 'Schedule in HH:00 AM/PM format',
+            type: 'object',
+            properties: {
+              name: {
+                type: 'string',
+              },
+              distance: {
+                type: 'number',
+              },
+              timeFromStart: {
+                type: 'string',
+              },
+            },
           },
         },
-        operator: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The operator of the route',
-        },
-        price: {
-          type: 'number',
-          description: 'The price for the route',
-        },
-        isActive: {
-          type: 'boolean',
-          description: 'Status of the route',
-        },
       },
+      required: ['routeNumber', 'startLocation', 'endLocation'],
     },
-    ApiResponse: {
+    Route: {
       type: 'object',
       properties: {
-        message: {
+        routeNumber: {
           type: 'string',
-          description: 'Response message',
+          description: 'The number of the route',
+        },
+        startLocation: {
+          type: 'string',
+          description: 'The starting location of the route',
+        },
+        endLocation: {
+          type: 'string',
+          description: 'The ending location of the route',
+        },
+        fare: {
+          type: 'number',
+          description: 'The fare for the route',
+        },
+        distance: {
+          type: 'number',
+          description: 'The total distance of the route',
+        },
+        schedules: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              departureTime: {
+                type: 'string',
+                format: 'date-time',
+              },
+              arrivalTime: {
+                type: 'string',
+                format: 'date-time',
+              },
+            },
+          },
+        },
+        stops: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              name: {
+                type: 'string',
+              },
+              distance: {
+                type: 'number',
+              },
+              timeFromStart: {
+                type: 'string',
+              },
+            },
+          },
         },
       },
-    },
-  },
-  responses: {
-    UnauthorizedError: {
-      description: 'Unauthorized request',
-    },
-    InvalidCredentials: {
-      description: 'Invalid credentials provided',
-    },
-    RouteNotFound: {
-      description: 'Route not found',
-    },
-  },
-  securitySchemes: {
-    bearerAuth: {
-      type: 'http',
-      scheme: 'bearer',
-      bearerFormat: 'JWT',
     },
   },
 };

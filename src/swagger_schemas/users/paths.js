@@ -1,126 +1,199 @@
 module.exports = {
-  '/api/users': {
+  '/users/create': {
+    post: {
+      tags: ['Users'],
+      summary: 'Create a new user',
+      description: 'Creates a new user account with the provided details.',
+      operationId: 'createUser',
+      requestBody: {
+        content: {
+          'application/json': {
+            schema: { $ref: '#/components/schemas/CreateUser' },
+          },
+        },
+      },
+      responses: {
+        201: {
+          description: 'User created successfully',
+          content: {
+            'application/json': {
+              schema: { $ref: '#/components/schemas/User' },
+            },
+          },
+        },
+        400: { description: 'Invalid request parameters' },
+        403: { description: 'Only admins can create users' },
+      },
+    },
+  },
+
+  '/users': {
     get: {
       tags: ['Users'],
       summary: 'Get all users',
-      description: 'Retrieve all users with optional filters for username, role, etc.',
-      security: [
-        {
-          bearerAuth: [],
-        },
-      ],
+      description: 'Retrieve all users with optional filters and pagination.',
+      operationId: 'getAllUsers',
       parameters: [
         {
-          name: 'username',
+          name: 'page',
           in: 'query',
-          required: false,
-          description: 'The username to filter users by',
-          schema: {
-            type: 'string',
-          },
-        },
-        {
-          name: 'role',
-          in: 'query',
-          required: false,
-          description: 'The role to filter users by',
-          schema: {
-            type: 'string',
-            enum: ['COMMUTER', 'ADMIN', 'OPERATOR'],
-          },
-        },
-        {
-          name: 'sort',
-          in: 'query',
-          required: false,
-          description: 'Sort the results by the specified field',
-          schema: {
-            type: 'string',
-          },
+          description: 'Page number for pagination',
+          schema: { type: 'integer' },
         },
         {
           name: 'limit',
           in: 'query',
-          required: false,
-          description: 'Limit the number of users returned',
-          schema: {
-            type: 'integer',
-            example: 10,
-          },
-        },
-        {
-          name: 'skip',
-          in: 'query',
-          required: false,
-          description: 'Skip a number of users',
-          schema: {
-            type: 'integer',
-            example: 0,
-          },
+          description: 'Number of users per page',
+          schema: { type: 'integer' },
         },
       ],
       responses: {
         200: {
-          description: 'Users retrieved successfully',
+          description: 'List of users',
           content: {
             'application/json': {
               schema: {
-                type: 'array',
-                items: {
-                  $ref: '#/components/schemas/UserDetails',
+                type: 'object',
+                properties: {
+                  users: {
+                    type: 'array',
+                    items: { $ref: '#/components/schemas/User' },
+                  },
+                  total: { type: 'integer' },
+                  page: { type: 'integer' },
+                  limit: { type: 'integer' },
                 },
               },
             },
           },
         },
-        401: {
-          description: 'Unauthorized, invalid or expired token',
-        },
+        400: { description: 'Invalid filters or pagination parameters' },
       },
     },
   },
-  '/api/users/role/{role}': {
+
+  '/users/{id}': {
     get: {
       tags: ['Users'],
-      summary: 'Get users by role',
-      description: 'Retrieve users by their role (commuter, admin, operator)',
-      security: [
-        {
-          bearerAuth: [],
-        },
-      ],
+      summary: 'Get user details by ID',
+      description: 'Retrieve details of a specific user by their ID.',
+      operationId: 'getUserById',
       parameters: [
         {
-          name: 'role',
+          name: 'id',
           in: 'path',
           required: true,
-          description: 'The role to filter users by',
-          schema: {
-            type: 'string',
-            enum: ['COMMUTER', 'ADMIN', 'OPERATOR'],
-          },
+          description: 'ID of the user to retrieve',
+          schema: { type: 'string' },
         },
       ],
       responses: {
         200: {
-          description: 'Users by role retrieved successfully',
+          description: 'User details retrieved successfully',
           content: {
             'application/json': {
-              schema: {
-                type: 'array',
-                items: {
-                  $ref: '#/components/schemas/UserDetails',
-                },
-              },
+              schema: { $ref: '#/components/schemas/User' },
             },
           },
         },
-        400: {
-          description: 'Invalid role provided',
+        404: { description: 'User not found' },
+      },
+    },
+    put: {
+      tags: ['Users'],
+      summary: 'Update user details',
+      description: 'Update the details of an existing user.',
+      operationId: 'updateUser',
+      parameters: [
+        {
+          name: 'id',
+          in: 'path',
+          required: true,
+          description: 'ID of the user to update',
+          schema: { type: 'string' },
         },
-        401: {
-          description: 'Unauthorized, invalid or expired token',
+      ],
+      requestBody: {
+        content: {
+          'application/json': {
+            schema: { $ref: '#/components/schemas/UpdateUser' },
+          },
         },
+      },
+      responses: {
+        200: {
+          description: 'User details updated successfully',
+          content: {
+            'application/json': {
+              schema: { $ref: '#/components/schemas/User' },
+            },
+          },
+        },
+        400: { description: 'Invalid update data' },
+        404: { description: 'User not found' },
+      },
+    },
+    delete: {
+      tags: ['Users'],
+      summary: 'Delete user by ID',
+      description: 'Delete a user by their ID.',
+      operationId: 'deleteUser',
+      parameters: [
+        {
+          name: 'id',
+          in: 'path',
+          required: true,
+          description: 'ID of the user to delete',
+          schema: { type: 'string' },
+        },
+      ],
+      responses: {
+        200: { description: 'User deleted successfully' },
+        404: { description: 'User not found' },
+      },
+    },
+  },
+
+  '/users/reset-password/{id}': {
+    patch: {
+      tags: ['Users'],
+      summary: 'Reset user password',
+      description: 'Reset the password of a user and send new credentials via email.',
+      operationId: 'resetPassword',
+      parameters: [
+        {
+          name: 'id',
+          in: 'path',
+          required: true,
+          description: 'ID of the user whose password needs to be reset',
+          schema: { type: 'string' },
+        },
+      ],
+      responses: {
+        200: { description: 'Password reset successfully' },
+        404: { description: 'User not found' },
+      },
+    },
+  },
+
+  '/users/hard-delete/{id}': {
+    delete: {
+      tags: ['Users'],
+      summary: 'Permanently delete user',
+      description: 'Permanently delete a user by their ID.',
+      operationId: 'hardDeleteUser',
+      parameters: [
+        {
+          name: 'id',
+          in: 'path',
+          required: true,
+          description: 'ID of the user to permanently delete',
+          schema: { type: 'string' },
+        },
+      ],
+      responses: {
+        200: { description: 'User permanently deleted successfully' },
+        404: { description: 'User not found' },
       },
     },
   },

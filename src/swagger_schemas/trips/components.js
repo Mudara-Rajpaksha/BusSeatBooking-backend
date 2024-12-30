@@ -1,103 +1,56 @@
 module.exports = {
   schemas: {
-    TripInput: {
-      type: 'object',
-      required: ['route', 'bus'],
-      properties: {
-        route: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The ID of the route for the trip',
-        },
-        bus: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The ID of the bus for the trip',
-        },
-        status: {
-          type: 'string',
-          enum: ['SCHEDULED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED'],
-          default: 'SCHEDULED',
-          description: 'The status of the trip',
-        },
-        availableSeats: {
-          type: 'number',
-          description: 'The number of available seats for the trip',
-        },
-      },
-    },
-    TripResponse: {
+    Trip: {
       type: 'object',
       properties: {
-        message: {
-          type: 'string',
-          description: 'Success message for the operation',
+        _id: { type: 'string' },
+        routeId: { type: 'string' },
+        busId: { type: 'string' },
+        departureDate: { type: 'string', format: 'date-time' },
+        arrivalDate: { type: 'string', format: 'date-time' },
+        availableSeats: { type: 'integer' },
+        status: { type: 'string', enum: ['scheduled', 'cancelled'] },
+        intermediateStops: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              stopName: { type: 'string' },
+              arrivalTime: { type: 'string', format: 'date-time' },
+              departureTime: { type: 'string', format: 'date-time' },
+              fareFromStart: { type: 'number' },
+            },
+          },
         },
-        data: {
-          type: 'object',
-          description: 'Trip data',
-        },
+        paymentRequired: { type: 'boolean' },
       },
     },
-    TripDetails: {
+    TripAvailability: {
       type: 'object',
       properties: {
-        id: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The unique ID of the trip',
-        },
-        route: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The route for the trip',
-        },
-        bus: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The bus assigned to the trip',
-        },
-        status: {
-          type: 'string',
-          enum: ['SCHEDULED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED'],
-          description: 'The status of the trip',
-        },
-        availableSeats: {
-          type: 'number',
-          description: 'The number of available seats for the trip',
-        },
-        isActive: {
-          type: 'boolean',
-          description: 'Whether the trip is active or not',
-        },
+        available: { type: 'boolean' },
+        totalSeats: { type: 'integer' },
+        bookedSeats: { type: 'integer' },
+        availableSeats: { type: 'integer' },
       },
     },
-    ApiResponse: {
+    CreateTrip: {
+      type: 'object',
+      required: ['routeId', 'busId', 'departureDate', 'arrivalDate'],
+      properties: {
+        routeId: { type: 'string' },
+        busId: { type: 'string' },
+        departureDate: { type: 'string', format: 'date-time' },
+        arrivalDate: { type: 'string', format: 'date-time' },
+        paymentRequired: { type: 'boolean' },
+      },
+    },
+    UpdateTrip: {
       type: 'object',
       properties: {
-        message: {
-          type: 'string',
-          description: 'Response message',
-        },
+        status: { type: 'string', enum: ['scheduled', 'cancelled'] },
+        arrivalDate: { type: 'string', format: 'date-time' },
       },
-    },
-  },
-  responses: {
-    UnauthorizedError: {
-      description: 'Unauthorized request',
-    },
-    InvalidCredentials: {
-      description: 'Invalid credentials provided',
-    },
-    TripNotFound: {
-      description: 'Trip not found',
-    },
-  },
-  securitySchemes: {
-    bearerAuth: {
-      type: 'http',
-      scheme: 'bearer',
-      bearerFormat: 'JWT',
     },
   },
 };

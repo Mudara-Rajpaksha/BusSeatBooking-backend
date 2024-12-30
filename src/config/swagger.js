@@ -10,10 +10,14 @@ const tripComponents = require('../swagger_schemas/trips/components');
 const tripPaths = require('../swagger_schemas/trips/paths');
 const userComponents = require('../swagger_schemas/users/components');
 const userPaths = require('../swagger_schemas/users/paths');
+const seatMapComponents = require('../swagger_schemas/seatMap/components');
+const seatMapPaths = require('../swagger_schemas/seatMap/paths');
+const permitComponents = require('../swagger_schemas/permit/components');
+const permitMapPaths = require('../swagger_schemas/permit/paths');
 
 const swaggerOptions = {
   definition: {
-    openapi: '3.0.0',
+    openapi: '3.1.0',
     info: {
       title: 'Bus Seat Booking API',
       version: '1.0.0',
@@ -44,6 +48,8 @@ const swaggerOptions = {
         ...routeComponents.schemas,
         ...tripComponents.schemas,
         ...userComponents.schemas,
+        ...seatMapComponents.schemas,
+        ...permitComponents.schemas,
       },
       responses: {
         ...authComponents.responses,
@@ -52,6 +58,8 @@ const swaggerOptions = {
         ...routeComponents.responses,
         ...tripComponents.responses,
         ...userComponents.responses,
+        ...seatMapComponents.responses,
+        ...permitComponents.responses,
       },
     },
     tags: [
@@ -87,6 +95,8 @@ const swaggerOptions = {
       ...routePaths,
       ...tripPaths,
       ...userPaths,
+      ...seatMapPaths,
+      ...permitMapPaths,
     },
   },
   apis: ['./routes/*.js', './models/*.js'],

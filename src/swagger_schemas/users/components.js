@@ -1,98 +1,41 @@
 module.exports = {
   schemas: {
-    UserInput: {
-      type: 'object',
-      required: ['username', 'password'],
-      properties: {
-        username: {
-          type: 'string',
-          description: 'The username of the user',
-        },
-        password: {
-          type: 'string',
-          description: 'The password of the user',
-        },
-        role: {
-          type: 'string',
-          enum: ['COMMUTER', 'ADMIN', 'OPERATOR'],
-          description: 'The role of the user',
-        },
-        verified: {
-          type: 'boolean',
-          description: 'Whether the user is verified',
-        },
-        active: {
-          type: 'boolean',
-          description: 'Whether the user is active',
-        },
-      },
-    },
-    UserResponse: {
+    User: {
       type: 'object',
       properties: {
-        message: {
-          type: 'string',
-          description: 'Success message for the operation',
-        },
-        data: {
-          type: 'object',
-          description: 'User data',
-        },
+        _id: { type: 'string' },
+        firstname: { type: 'string' },
+        lastname: { type: 'string' },
+        email: { type: 'string' },
+        mobile: { type: 'string' },
+        username: { type: 'string' },
+        role: { type: 'string', enum: ['admin', 'operator', 'commuter'] },
+        verified: { type: 'boolean' },
+        active: { type: 'boolean' },
       },
     },
-    UserDetails: {
+    CreateUser: {
+      type: 'object',
+      required: ['firstname', 'lastname', 'email', 'mobile', 'username', 'role'],
+      properties: {
+        firstname: { type: 'string' },
+        lastname: { type: 'string' },
+        email: { type: 'string' },
+        mobile: { type: 'string' },
+        username: { type: 'string' },
+        role: { type: 'string', enum: ['admin', 'operator', 'commuter'] },
+      },
+    },
+    UpdateUser: {
       type: 'object',
       properties: {
-        id: {
-          type: 'string',
-          format: 'uuid',
-          description: 'The unique ID of the user',
-        },
-        username: {
-          type: 'string',
-          description: 'The username of the user',
-        },
-        role: {
-          type: 'string',
-          enum: ['COMMUTER', 'ADMIN', 'OPERATOR'],
-          description: 'The role of the user',
-        },
-        verified: {
-          type: 'boolean',
-          description: 'Whether the user is verified',
-        },
-        active: {
-          type: 'boolean',
-          description: 'Whether the user is active',
-        },
+        firstname: { type: 'string' },
+        lastname: { type: 'string' },
+        email: { type: 'string' },
+        mobile: { type: 'string' },
+        username: { type: 'string' },
+        role: { type: 'string', enum: ['admin', 'operator', 'commuter'] },
       },
-    },
-    ApiResponse: {
-      type: 'object',
-      properties: {
-        message: {
-          type: 'string',
-          description: 'Response message',
-        },
-      },
-    },
-  },
-  responses: {
-    UnauthorizedError: {
-      description: 'Unauthorized request',
-    },
-    InvalidCredentials: {
-      description: 'Invalid credentials provided',
-    },
-    UserNotFound: {
-      description: 'User not found',
-    },
-  },
-  securitySchemes: {
-    bearerAuth: {
-      type: 'http',
-      scheme: 'bearer',
-      bearerFormat: 'JWT',
     },
   },
 };

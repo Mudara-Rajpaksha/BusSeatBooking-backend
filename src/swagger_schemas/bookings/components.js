@@ -1,123 +1,120 @@
 module.exports = {
   schemas: {
-    BookingInput: {
+    TripInput: {
       type: 'object',
-      required: ['trip', 'seat'],
+      required: ['departureDate', 'routeId', 'busId', 'status'],
       properties: {
-        trip: {
+        departureDate: {
           type: 'string',
-          format: 'uuid',
-          description: 'Trip ID associated with the booking',
+          format: 'date-time',
+          description: 'The departure date and time of the trip',
         },
-        seat: {
+        routeId: {
           type: 'string',
-          description: 'Seat number to be booked',
+          description: 'The route ID for the trip',
         },
-        price: {
-          type: 'number',
-          description: 'Total price for the booking',
-        },
-      },
-    },
-    Booking: {
-      type: 'object',
-      properties: {
-        id: {
+        busId: {
           type: 'string',
-          format: 'uuid',
-          description: 'Unique identifier for the booking',
-        },
-        user: {
-          type: 'string',
-          format: 'uuid',
-          description: 'User ID associated with the booking',
-        },
-        trip: {
-          type: 'string',
-          format: 'uuid',
-          description: 'Trip ID associated with the booking',
-        },
-        seat: {
-          type: 'string',
-          description: 'Booked seat number',
+          description: 'The bus ID for the trip',
         },
         status: {
           type: 'string',
-          enum: ['PENDING', 'CONFIRMED', 'CANCELLED'],
-          description: 'Status of the booking',
+          enum: ['scheduled', 'completed', 'cancelled'],
+          description: 'The status of the trip',
         },
-        price: {
-          type: 'number',
-          description: 'Total price for the booking',
+        availableSeats: {
+          type: 'integer',
+          description: 'The number of available seats for the trip',
         },
-        bookedAt: {
+      },
+    },
+    BookingInput: {
+      type: 'object',
+      required: ['tripId', 'userId', 'seatIds', 'fromStop', 'toStop'],
+      properties: {
+        tripId: {
           type: 'string',
-          format: 'date-time',
-          description: 'Booking creation timestamp',
+          description: 'The ID of the trip being booked',
+        },
+        userId: {
+          type: 'string',
+          description: 'The ID of the user making the booking',
+        },
+        seatIds: {
+          type: 'array',
+          items: {
+            type: 'string',
+          },
+          description: 'The IDs of the selected seats',
+        },
+        fromStop: {
+          type: 'string',
+          description: 'The starting stop for the trip',
+        },
+        toStop: {
+          type: 'string',
+          description: 'The ending stop for the trip',
+        },
+        paymentDetails: {
+          type: 'object',
+          description: 'Payment details for the booking (if required)',
+          properties: {
+            paymentMethod: {
+              type: 'string',
+              description: 'The payment method used for booking',
+            },
+            amount: {
+              type: 'number',
+              format: 'float',
+              description: 'The total amount paid for the booking',
+            },
+          },
+        },
+      },
+    },
+    BookingResponse: {
+      type: 'object',
+      properties: {
+        bookingId: {
+          type: 'string',
+          description: 'The unique ID of the booking',
+        },
+        tripId: {
+          type: 'string',
+          description: 'The ID of the trip for this booking',
+        },
+        seatIds: {
+          type: 'array',
+          items: {
+            type: 'string',
+          },
+          description: 'The IDs of the booked seats',
+        },
+        status: {
+          type: 'string',
+          enum: ['confirmed', 'pending', 'cancelled'],
+          description: 'The current status of the booking',
+        },
+        totalFare: {
+          type: 'number',
+          format: 'float',
+          description: 'The total fare for the booking',
         },
       },
     },
   },
   responses: {
-    UnauthorizedError: {
-      description: 'Access token is missing or invalid',
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            properties: {
-              status: {
-                type: 'string',
-                example: 'error',
-              },
-              message: {
-                type: 'string',
-                example: 'Unauthorized access',
-              },
-            },
-          },
-        },
-      },
-    },
     BookingNotFound: {
-      description: 'Booking not found',
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            properties: {
-              status: {
-                type: 'string',
-                example: 'error',
-              },
-              message: {
-                type: 'string',
-                example: 'Booking not found',
-              },
-            },
-          },
-        },
-      },
+      description: 'The booking could not be found',
     },
-    BookingCancelled: {
-      description: 'Booking has been successfully cancelled',
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            properties: {
-              status: {
-                type: 'string',
-                example: 'success',
-              },
-              message: {
-                type: 'string',
-                example: 'Booking cancelled successfully',
-              },
-            },
-          },
-        },
-      },
+    TripNotFound: {
+      description: 'The trip could not be found',
+    },
+    SeatUnavailable: {
+      description: 'The selected seats are no longer available',
+    },
+    InvalidSeatIds: {
+      description: 'One or more seat IDs are invalid',
     },
   },
 };

@@ -2,71 +2,62 @@ module.exports = {
   schemas: {
     BusInput: {
       type: 'object',
-      required: ['registrationNumber', 'seats'],
       properties: {
-        registrationNumber: {
+        permit: {
           type: 'string',
-          description: 'The registration number of the bus',
+          description: 'The ID of the permit associated with the bus',
         },
-        seats: {
-          type: 'array',
-          items: {
-            type: 'object',
-            properties: {
-              seatNumber: {
-                type: 'string',
-                description: 'The seat number in the bus',
-              },
-              isBooked: {
-                type: 'boolean',
-                description: 'Whether the seat is booked or not',
-              },
-            },
-          },
-          description: 'The seats in the bus',
+        manufacturer: {
+          type: 'string',
+          description: 'The manufacturer of the bus',
         },
-        amenities: {
+        yearOfManufacture: {
+          type: 'integer',
+          description: 'The year the bus was manufactured',
+        },
+        routes: {
           type: 'array',
           items: {
             type: 'string',
+            description: 'The IDs of the routes associated with the bus',
           },
-          description: 'Amenities available on the bus',
         },
-        isActive: {
-          type: 'boolean',
-          description: 'Whether the bus is active or not',
+        status: {
+          type: 'string',
+          enum: ['active', 'inactive'],
+          description: 'The current status of the bus',
         },
       },
+      required: ['permit', 'manufacturer', 'yearOfManufacture'],
     },
-    BusResponse: {
+    Bus: {
       type: 'object',
       properties: {
-        message: {
-          type: 'string',
-          description: 'Success message for the operation',
-        },
-        bus: {
+        permit: {
           type: 'object',
-          description: 'The bus object created or retrieved',
+          $ref: '#/components/schemas/Permit',
         },
-      },
-    },
-    ApiResponse: {
-      type: 'object',
-      properties: {
-        message: {
+        manufacturer: {
           type: 'string',
-          description: 'Response message',
+          description: 'The manufacturer of the bus',
+        },
+        yearOfManufacture: {
+          type: 'integer',
+          description: 'The year the bus was manufactured',
+        },
+        routes: {
+          type: 'array',
+          items: {
+            type: 'object',
+            $ref: '#/components/schemas/Route',
+          },
+        },
+        status: {
+          type: 'string',
+          enum: ['active', 'inactive'],
+          description: 'The current status of the bus',
         },
       },
-    },
-  },
-  responses: {
-    UnauthorizedError: {
-      description: 'Unauthorized request',
-    },
-    InvalidData: {
-      description: 'Invalid data provided for the bus',
     },
   },
 };

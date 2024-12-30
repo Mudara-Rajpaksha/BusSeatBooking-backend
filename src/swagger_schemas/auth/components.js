@@ -4,6 +4,22 @@ module.exports = {
       type: 'object',
       required: ['username', 'password', 'role'],
       properties: {
+        firstname: {
+          type: 'string',
+          description: 'The first name of the user',
+        },
+        lastname: {
+          type: 'string',
+          description: 'The last name of the user',
+        },
+        email: {
+          type: 'string',
+          description: 'The email address of the user',
+        },
+        mobile: {
+          type: 'string',
+          description: 'The mobile number of the user',
+        },
         username: {
           type: 'string',
           description: 'The username of the new user',
