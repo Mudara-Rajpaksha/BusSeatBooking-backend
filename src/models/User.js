@@ -1,16 +1,46 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const USER_ROLE = require('../enums/userRoles');
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    firstname: {
       type: String,
-      required: [true, 'username is required'],
+      required: [true, 'First name is required'],
+      trim: true,
+      minlength: [2, 'First name must be at least 2 characters long'],
+      maxlength: [50, 'First name cannot be more than 50 characters'],
+    },
+    lastname: {
+      type: String,
+      required: [true, 'Last name is required'],
+      trim: true,
+      minlength: [2, 'Last name must be at least 2 characters long'],
+      maxlength: [50, 'Last name cannot be more than 50 characters'],
+    },
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      unique: true,
+      lowercase: true,
+      trim: true,
+      match: [/^\S+@\S+\.\S+$/, 'Please provide a valid email address'],
+    },
+    mobile: {
+      type: String,
+      required: [true, 'Mobile number is required'],
       unique: true,
       trim: true,
-      minlength: [2, 'username must be at least 2 characters long'],
-      maxlength: [50, 'username cannot be more than 50 characters'],
+      match: [/^\d{10,15}$/, 'Please provide a valid mobile number'],
+    },
+    username: {
+      type: String,
+      required: [true, 'Username is required'],
+      unique: true,
+      trim: true,
+      minlength: [2, 'Username must be at least 2 characters long'],
+      maxlength: [50, 'Username cannot be more than 50 characters'],
     },
     password: {
       type: String,
@@ -62,6 +92,10 @@ userSchema.pre('save', async function (next) {
 });
 
 userSchema.pre(/^find/, function (next) {
+  console.log('Pre Hook Query: ', this.getQuery());
+  if (this._conditions._id) {
+    return next();
+  }
   this.find({ active: { $ne: false } });
   next();
 });

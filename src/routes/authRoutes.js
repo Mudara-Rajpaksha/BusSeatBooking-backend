@@ -11,6 +11,7 @@ router.post('/refresh-token', authController.refreshToken);
 
 router.use(authenticate);
 router.get('/me', authController.getProfile);
+router.put('/updateMe/:id', authController.updateMe);
 router.post('/logout', authController.logout);
 
 module.exports = router;

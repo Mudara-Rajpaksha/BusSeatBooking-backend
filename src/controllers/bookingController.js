@@ -114,6 +114,15 @@ class BookingController {
       next(new ApiError(error.message || 'Error retrieving user bookings', error.status || 500));
     }
   }
+
+  async getAllBookings(req, res, next) {
+    try {
+      const bookings = await BookingService.getAllBookings();
+      res.json(new ApiResponse('All bookings retrieved successfully', bookings));
+    } catch (error) {
+      next(new ApiError(error.message || 'Error retrieving all bookings', error.status || 500));
+    }
+  }
 }
 
 module.exports = new BookingController();

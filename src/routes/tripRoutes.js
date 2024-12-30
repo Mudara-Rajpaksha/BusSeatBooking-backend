@@ -2,17 +2,26 @@ const express = require('express');
 const router = express.Router();
 const tripController = require('../controllers/tripController');
 const { authenticate, authorize } = require('../middleware/auth');
+const {
+  validateCreateTrip,
+  validateUpdateTrip,
+  validateDeleteTrip,
+  validateGetTrip,
+  validateCheckTripAvailability,
+} = require('../validators/tripValidator');
 
-router.post('/add', tripController.createTrip);
+router.use(authenticate);
 
-router.put('/:tripId', tripController.updateTrip);
+router.use(authorize('admin', 'operator'));
 
-router.delete('/:tripId', tripController.deleteTrip);
+router.post('/add', validateCreateTrip, tripController.createTrip);
+router.put('/:tripId', validateUpdateTrip, tripController.updateTrip);
+router.delete('/:tripId', validateDeleteTrip, tripController.deleteTrip);
 
-router.get('/:tripId', tripController.getTrip);
+router.use(authorize('admin', 'operator', 'commuter'));
 
+router.get('/:tripId', validateGetTrip, tripController.getTrip);
 router.get('/', tripController.getAllTrips);
-
-router.get('/:tripId/availability', tripController.checkTripAvailability);
+router.get('/:tripId/availability', validateCheckTripAvailability, tripController.checkTripAvailability);
 
 module.exports = router;

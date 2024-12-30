@@ -1,92 +1,133 @@
-const { body } = require('express-validator');
-const mongoose = require('mongoose');
-const Permit = require('../models/Permit');
+const { body, query } = require('express-validator');
+const { validate } = require('../middleware/validator');
 
-exports.validateCreatePermit = [
+exports.validateCreatePermit = validate([
   body('permitNumber')
+    .trim()
     .notEmpty()
     .withMessage('Permit number is required')
-    .custom(async (permitNumber) => {
-      const existingPermit = await Permit.findOne({ permitNumber });
-      if (existingPermit) {
-        throw new Error('Permit number already exists');
-      }
-      return true;
-    }),
+    .isLength({ max: 50 })
+    .withMessage('Permit number must be less than 50 characters'),
 
-  body('holderName').notEmpty().withMessage('Holder name is required'),
+  body('holderName')
+    .trim()
+    .notEmpty()
+    .withMessage('Holder name is required')
+    .isLength({ max: 100 })
+    .withMessage('Holder name must be less than 100 characters'),
 
   body('vehicleType')
     .notEmpty()
     .withMessage('Vehicle type is required')
     .isIn(['bus', 'minibus', 'luxury'])
-    .withMessage('Invalid vehicle type'),
+    .withMessage('Vehicle type must be one of bus, minibus, or luxury'),
 
-  body('status').optional().isIn(['active', 'expired', 'suspended', 'cancelled']).withMessage('Invalid status'),
+  body('status')
+    .optional()
+    .isIn(['active', 'expired', 'suspended', 'cancelled'])
+    .withMessage('Status must be one of active, expired, suspended, or cancelled'),
 
   body('issuedDate')
     .notEmpty()
     .withMessage('Issued date is required')
-    .isISO8601()
-    .withMessage('Invalid date format for issued date'),
+    .isDate()
+    .withMessage('Issued date must be a valid date'),
 
   body('expiryDate')
     .notEmpty()
     .withMessage('Expiry date is required')
-    .isISO8601()
-    .withMessage('Invalid date format for expiry date')
-    .custom((expiryDate, { req }) => {
-      if (new Date(expiryDate) <= new Date(req.body.issuedDate)) {
-        throw new Error('Expiry date must be later than the issued date');
-      }
-      return true;
-    }),
+    .isDate()
+    .withMessage('Expiry date must be a valid date'),
 
   body('documents')
     .isArray()
-    .withMessage('Documents must be an array')
-    .custom((documents) => {
-      if (documents.length === 0) {
-        throw new Error('At least one document is required');
+    .withMessage('Documents must be an array of strings')
+    .custom((value) => {
+      if (value && value.length > 0) {
+        value.forEach((doc) => {
+          if (typeof doc !== 'string') {
+            throw new Error('Each document must be a string');
+          }
+        });
       }
       return true;
     }),
-];
+]);
 
-exports.validateUpdatePermit = [
+exports.validateUpdatePermit = validate([
   body('permitNumber')
     .optional()
-    .custom(async (permitNumber, { req }) => {
-      const existingPermit = await Permit.findOne({ permitNumber, _id: { $ne: req.params.permitId } });
-      if (existingPermit) {
-        throw new Error('Permit number already exists');
-      }
-      return true;
-    }),
+    .trim()
+    .isLength({ max: 50 })
+    .withMessage('Permit number must be less than 50 characters'),
 
-  body('holderName').optional().notEmpty().withMessage('Holder name cannot be empty'),
-
-  body('vehicleType').optional().isIn(['bus', 'minibus', 'luxury']).withMessage('Invalid vehicle type'),
-
-  body('status').optional().isIn(['active', 'expired', 'suspended', 'cancelled']).withMessage('Invalid status'),
-
-  body('issuedDate').optional().isISO8601().withMessage('Invalid date format for issued date'),
-
-  body('expiryDate')
+  body('holderName')
     .optional()
-    .isISO8601()
-    .withMessage('Invalid date format for expiry date')
-    .custom((expiryDate, { req }) => {
-      if (expiryDate && new Date(expiryDate) <= new Date(req.body.issuedDate)) {
-        throw new Error('Expiry date must be later than the issued date');
+    .trim()
+    .isLength({ max: 100 })
+    .withMessage('Holder name must be less than 100 characters'),
+
+  body('vehicleType')
+    .optional()
+    .isIn(['bus', 'minibus', 'luxury'])
+    .withMessage('Vehicle type must be one of bus, minibus, or luxury'),
+
+  body('status')
+    .optional()
+    .isIn(['active', 'expired', 'suspended', 'cancelled'])
+    .withMessage('Status must be one of active, expired, suspended, or cancelled'),
+
+  body('issuedDate')
+    .notEmpty()
+    .withMessage('Issued date is required')
+    .custom((value) => {
+      const parsedDate = Date.parse(value);
+      if (isNaN(parsedDate)) {
+        throw new Error('Issued date must be a valid date');
       }
       return true;
     }),
 
-  body('documents').optional().isArray().withMessage('Documents must be an array'),
-];
+  body('expiryDate').optional().isDate().withMessage('Expiry date must be a valid date'),
 
-exports.validatePermitId = [
+  body('documents')
+    .optional()
+    .isArray()
+    .withMessage('Documents must be an array of strings')
+    .custom((value) => {
+      if (value && value.length > 0) {
+        value.forEach((doc) => {
+          if (typeof doc !== 'string') {
+            throw new Error('Each document must be a string');
+          }
+        });
+      }
+      return true;
+    }),
+]);
+
+exports.validatePermitFilters = validate([
+  query('status')
+    .optional()
+    .isIn(['active', 'expired', 'suspended', 'cancelled'])
+    .withMessage('Status must be one of active, expired, suspended, or cancelled'),
+
+  query('vehicleType')
+    .optional()
+    .isIn(['bus', 'minibus', 'luxury'])
+    .withMessage('Vehicle type must be one of bus, minibus, or luxury'),
+
+  query('page').optional().isInt({ min: 1 }).withMessage('Page must be a positive integer'),
+
+  query('limit').optional().isInt({ min: 1 }).withMessage('Limit must be a positive integer'),
+
+  query('sort')
+    .optional()
+    .isIn(['permitNumber', '-permitNumber', 'issuedDate', '-issuedDate'])
+    .withMessage('Sort must be either permitNumber, -permitNumber, issuedDate, or -issuedDate'),
+]);
+
+exports.validatePermitId = validate([
   body('permitId')
     .notEmpty()
     .withMessage('Permit ID is required')
@@ -96,4 +137,4 @@ exports.validatePermitId = [
       }
       return true;
     }),
-];
+]);

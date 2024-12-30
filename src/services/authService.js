@@ -1,7 +1,8 @@
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const Token = require('../models/Token');
-const tokenService = require('./tokenService');
 const { ApiError } = require('../utils/responses');
+const USER_ROLE = require('../enums/userRoles');
 
 class AuthService {
   async register(userData) {
@@ -12,14 +13,22 @@ class AuthService {
     }
 
     const user = await User.create({
+      firstname: userData.firstname,
+      lastname: userData.lastname,
+      email: userData.email,
+      mobile: userData.mobile,
       username: userData.username,
       password: userData.password,
-      role: userData.role,
+      role: USER_ROLE.COMMUTER,
     });
 
     return {
       id: user._id,
       username: user.username,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+      mobile: user.mobile,
       role: user.role,
     };
   }
@@ -37,6 +46,10 @@ class AuthService {
     return {
       id: user._id,
       username: user.username,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+      mobile: user.mobile,
       role: user.role,
     };
   }
@@ -55,9 +68,29 @@ class AuthService {
     return {
       id: user._id,
       username: user.username,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+      mobile: user.mobile,
       role: user.role,
       verified: user.verified,
     };
+  }
+
+  async updateMe(userId, updateData) {
+    if (updateData.password) {
+      const salt = await bcrypt.genSalt(12);
+      updateData.password = await bcrypt.hash(updateData.password, salt);
+    }
+
+    const user = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!user) throw new ApiError('User not found', 404);
+
+    return user;
   }
 }
 

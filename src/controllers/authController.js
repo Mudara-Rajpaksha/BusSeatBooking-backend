@@ -6,8 +6,9 @@ const config = require('../config/config');
 class AuthController {
   async register(req, res, next) {
     try {
-      console.log(req.body);
-      const user = await authService.register(req.body);
+      const { firstname, lastname, email, mobile, username, password } = req.body;
+
+      const user = await authService.register({ firstname, lastname, email, mobile, username, password });
 
       const tokens = tokenService.generateTokens({ id: user.id });
       await tokenService.saveToken(user.id, tokens.accessToken, tokens.refreshToken, req.headers['user-agent'], req.ip);
@@ -33,9 +34,9 @@ class AuthController {
 
   async login(req, res, next) {
     try {
-      const user = await authService.login(req.body.username, req.body.password);
+      const { username, password } = req.body;
 
-      console.log(user);
+      const user = await authService.login(username, password);
 
       const tokens = tokenService.generateTokens({ id: user.id });
       await tokenService.saveToken(user.id, tokens.accessToken, tokens.refreshToken, req.headers['user-agent'], req.ip);
@@ -111,6 +112,22 @@ class AuthController {
     try {
       const user = await authService.getProfile(req.user.id);
       res.json(new ApiResponse('Profile retrieved successfully', { user }));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async updateMe(req, res, next) {
+    try {
+      const loggedInUserId = req.user._id;
+      const userIdToUpdate = req.params.id;
+
+      if (loggedInUserId.toString() !== userIdToUpdate) {
+        throw new ApiError('You can only update your own account', 403);
+      }
+
+      const user = await authService.updateMe(userIdToUpdate, req.body);
+      res.json(new ApiResponse('User updated successfully', { user }));
     } catch (error) {
       next(error);
     }

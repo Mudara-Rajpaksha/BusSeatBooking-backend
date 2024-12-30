@@ -1,68 +1,150 @@
-const { body } = require('express-validator');
+const { body, query } = require('express-validator');
 const { validate } = require('../middleware/validator');
-const mongoose = require('mongoose');
-const User = require('../models/User');
 
-exports.validateRoute = validate([
-  body('origin')
+exports.validateCreateRoute = validate([
+  body('routeNumber')
     .trim()
     .notEmpty()
-    .withMessage('Origin is required')
-    .isLength({ min: 2, max: 100 })
-    .withMessage('Origin must be between 2 and 100 characters'),
+    .withMessage('Route number is required')
+    .isLength({ max: 50 })
+    .withMessage('Route number must be less than 50 characters'),
 
-  body('destination')
+  body('startLocation')
     .trim()
     .notEmpty()
-    .withMessage('Destination is required')
-    .isLength({ min: 2, max: 100 })
-    .withMessage('Destination must be between 2 and 100 characters'),
+    .withMessage('Start location is required')
+    .isLength({ max: 100 })
+    .withMessage('Start location must be less than 100 characters'),
 
-  body('schedule')
+  body('endLocation')
+    .trim()
+    .notEmpty()
+    .withMessage('End location is required')
+    .isLength({ max: 100 })
+    .withMessage('End location must be less than 100 characters'),
+
+  body('distance')
+    .isNumeric()
+    .withMessage('Distance must be a valid number')
+    .isInt({ min: 1 })
+    .withMessage('Distance must be greater than 0'),
+
+  body('fare')
+    .isNumeric()
+    .withMessage('Fare must be a valid number')
+    .isInt({ min: 1 })
+    .withMessage('Fare must be greater than 0'),
+
+  body('schedules')
     .isArray()
-    .withMessage('Schedule must be an array')
-    .notEmpty()
-    .withMessage('At least one schedule time is required')
-    .custom((schedules) => {
-      if (!Array.isArray(schedules)) {
-        throw new Error('Schedule must be an array');
+    .withMessage('Schedules must be an array')
+    .optional()
+    .custom((value) => {
+      if (value) {
+        value.forEach((schedule) => {
+          if (!schedule.departureTime || !schedule.arrivalTime) {
+            throw new Error('Each schedule must have departureTime and arrivalTime');
+          }
+          if (schedule.frequency && schedule.frequency < 1) {
+            throw new Error('Frequency must be greater than 0');
+          }
+        });
       }
-
-      const invalidTimes = schedules.filter((time) => !/^(0?[1-9]|1[0-2]):00 (AM|PM)$/.test(time));
-
-      if (invalidTimes.length > 0) {
-        throw new Error(
-          `Invalid time format: ${invalidTimes.join(', ')}. Time must be in format "HH:00 AM/PM" (e.g., "10:00 AM")`
-        );
-      }
-
       return true;
     }),
-
-  body('operator')
-    .notEmpty()
-    .withMessage('Operator ID is required')
-    .custom(async (operatorId) => {
-      if (!mongoose.Types.ObjectId.isValid(operatorId)) {
-        throw new Error('Invalid operator ID format');
+  body('stops')
+    .isArray()
+    .withMessage('Stops must be an array')
+    .optional()
+    .custom((value) => {
+      if (value) {
+        value.forEach((stop) => {
+          if (!stop.name || !stop.distance || !stop.timeFromStart) {
+            throw new Error('Each stop must have name, distance, and timeFromStart');
+          }
+        });
       }
-
-      const operator = await User.findOne({
-        _id: operatorId,
-        role: 'operator',
-        active: true,
-      });
-
-      if (!operator) {
-        throw new Error('Invalid operator or operator not found');
-      }
-
       return true;
     }),
+]);
 
-  body('price')
-    .notEmpty()
-    .withMessage('Price is required')
-    .isFloat({ min: 0 })
-    .withMessage('Price must be a positive number'),
+exports.validateUpdateRoute = validate([
+  body('routeNumber')
+    .optional()
+    .trim()
+    .isLength({ max: 50 })
+    .withMessage('Route number must be less than 50 characters'),
+
+  body('startLocation')
+    .optional()
+    .trim()
+    .isLength({ max: 100 })
+    .withMessage('Start location must be less than 100 characters'),
+
+  body('endLocation')
+    .optional()
+    .trim()
+    .isLength({ max: 100 })
+    .withMessage('End location must be less than 100 characters'),
+
+  body('distance')
+    .optional()
+    .isNumeric()
+    .withMessage('Distance must be a valid number')
+    .isInt({ min: 1 })
+    .withMessage('Distance must be greater than 0'),
+
+  body('fare')
+    .optional()
+    .isNumeric()
+    .withMessage('Fare must be a valid number')
+    .isInt({ min: 1 })
+    .withMessage('Fare must be greater than 0'),
+
+  body('schedules')
+    .optional()
+    .isArray()
+    .withMessage('Schedules must be an array')
+    .custom((value) => {
+      if (value) {
+        value.forEach((schedule) => {
+          if (!schedule.departureTime || !schedule.arrivalTime) {
+            throw new Error('Each schedule must have departureTime and arrivalTime');
+          }
+        });
+      }
+      return true;
+    }),
+  body('stops')
+    .optional()
+    .isArray()
+    .withMessage('Stops must be an array')
+    .custom((value) => {
+      if (value) {
+        value.forEach((stop) => {
+          if (!stop.name || !stop.distance || !stop.timeFromStart) {
+            throw new Error('Each stop must have name, distance, and timeFromStart');
+          }
+        });
+      }
+      return true;
+    }),
+]);
+
+exports.validateRouteFilters = validate([
+  query('status')
+    .optional()
+    .isIn(['active', 'suspended', 'cancelled'])
+    .withMessage('Status must be one of active, suspended, or cancelled'),
+
+  query('routeNumber').optional().isLength({ max: 50 }).withMessage('Route number must be less than 50 characters'),
+
+  query('page').optional().isInt({ min: 1 }).withMessage('Page must be a positive integer'),
+
+  query('limit').optional().isInt({ min: 1 }).withMessage('Limit must be a positive integer'),
+
+  query('sort')
+    .optional()
+    .isIn(['routeNumber', '-routeNumber'])
+    .withMessage('Sort must be either routeNumber or -routeNumber'),
 ]);

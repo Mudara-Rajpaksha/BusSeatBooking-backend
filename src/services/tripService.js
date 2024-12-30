@@ -2,9 +2,28 @@ const mongoose = require('mongoose');
 const { SeatMap, Trip, Booking } = require('../models/Booking');
 const Route = require('../models/Route');
 const Bus = require('../models/Bus');
+const User = require('../models/User');
+const emailService = require('../services/emailService');
 const { ApiError } = require('../utils/responses');
 
 class TripService {
+  async sendEmailToUsers(bookedUsers, subject, htmlContent) {
+    try {
+      for (const user of bookedUsers) {
+        const emailContent = {
+          to: user.email,
+          subject,
+          html: htmlContent,
+          text: `Dear ${user.firstname} ${user.lastname},\n\n${htmlContent.replace(/<[^>]+>/g, '')}`,
+        };
+        await emailService.sendEmail(emailContent);
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw new ApiError('Failed to send email notification', 500);
+    }
+  }
+
   async createTrip(tripData) {
     try {
       const route = await Route.findById(tripData.routeId);
@@ -139,6 +158,23 @@ class TripService {
       if (existingBookings.length > 0) {
         throw new ApiError('Cannot delete trip with active bookings', 400);
       }
+
+      const bookings = await Booking.find({ tripId, status: 'confirmed' });
+      const bookedUsers = await User.find({ _id: { $in: bookings.map((booking) => booking.userId) } });
+
+      const cancellationSubject = `Your trip ${trip._id} has been cancelled`;
+      const cancellationHtml = `
+        <h2>Your trip has been cancelled</h2>
+        <p>Dear ${user.firstname} ${user.lastname},</p>
+        <p>We regret to inform you that your booked trip on ${trip.routeId.name} has been cancelled. Below are the details:</p>
+        <p><strong>Departure:</strong> ${trip.departureDate}</p>
+        <p><strong>Arrival:</strong> ${trip.arrivalDate}</p>
+        <p>If you have already paid, your payment has been refunded.</p>
+        <p>We apologize for the inconvenience.</p>
+        <p>Best regards,<br>System Administration</p>
+      `;
+
+      await this.sendEmailToUsers(bookedUsers, cancellationSubject, cancellationHtml);
 
       return await Trip.findByIdAndDelete(tripId);
     } catch (error) {

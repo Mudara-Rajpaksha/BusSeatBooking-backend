@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
 const { promisify } = require('util');
 const sleep = promisify(setTimeout);
-const logger = require('../config/logger');
-const emailConfig = require('../config/email.config');
+const logger = require('../utils/logger');
+const emailConfig = require('../config/emailConfig');
 
 class EmailService {
   constructor() {

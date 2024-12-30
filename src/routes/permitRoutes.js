@@ -2,12 +2,20 @@ const express = require('express');
 const router = express.Router();
 const permitController = require('../controllers/permitController');
 const { authenticate, authorize } = require('../middleware/auth');
-const { validatePermitId } = require('../validators/permitValidator');
+const {
+  validateCreatePermit,
+  validateUpdatePermit,
+  validatePermitFilters,
+  validatePermitId,
+} = require('../validators/permitValidator');
 
-router.post('/add', permitController.createPermit);
-router.put('/:permitId', validatePermitId, permitController.updatePermit);
+router.use(authenticate);
+router.use(authorize('admin', 'operator'));
+
+router.post('/add', validateCreatePermit, permitController.createPermit);
+router.put('/:permitId', validatePermitId, validateUpdatePermit, permitController.updatePermit);
 router.get('/:permitId', validatePermitId, permitController.getPermit);
-router.get('/', permitController.getAllPermits);
-router.delete('/:permitId', permitController.deletePermit);
+router.get('/', validatePermitFilters, permitController.getAllPermits);
+router.delete('/:permitId', validatePermitId, permitController.deletePermit);
 
 module.exports = router;

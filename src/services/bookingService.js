@@ -1,4 +1,6 @@
 const { SeatMap, Trip, Booking } = require('../models/Booking');
+const User = require('../models/User');
+const emailService = require('../services/emailService');
 const { ApiError } = require('../utils/responses');
 
 class BookingService {
@@ -42,13 +44,19 @@ class BookingService {
 
       const overlappingBookings = await Booking.find({
         tripId,
-        status: 'confirmed',
+        status: { $in: ['confirmed', 'pending'] },
         $or: [
           {
-            fromStop: { $gte: fromStop, $lt: toStop },
+            fromStop: { $lte: fromStop },
+            toStop: { $gte: toStop },
           },
           {
-            toStop: { $gt: fromStop, $lte: toStop },
+            fromStop: { $lte: fromStop },
+            toStop: { $gte: toStop },
+          },
+          {
+            fromStop: { $gte: fromStop },
+            toStop: { $lte: toStop },
           },
         ],
       });
@@ -138,6 +146,46 @@ class BookingService {
         $inc: { availableSeats: -seatIds.length },
       });
 
+      const user = await User.findById(userId);
+      if (user) {
+        const emailContent = {
+          to: user.email,
+          subject: 'Booking Confirmation',
+          html: `
+            <h2>Your Booking Details</h2>
+            <p>Dear ${user.firstname} ${user.lastname},</p>
+            <p>Your booking has been successfully confirmed. Here are the details:</p>
+            <p><strong>Trip:</strong> ${trip.routeId.name} (Bus: ${trip.busId.name})</p>
+            <p><strong>From Stop:</strong> ${fromStop}</p>
+            <p><strong>To Stop:</strong> ${toStop}</p>
+            <p><strong>Seat Numbers:</strong> ${seatNumbers.join(', ')}</p>
+            <p><strong>Total Fare:</strong> ${totalFare} LKR</p>
+            <p>Your booking is now confirmed. Thank you for choosing our service!</p>
+            <p>Best regards,<br>Bus Booking Team</p>
+          `,
+          text: `
+            Your Booking Details
+
+            Dear ${user.firstname} ${user.lastname},
+
+            Your booking has been successfully confirmed. Here are the details:
+
+            Trip: ${trip.routeId.name} (Bus: ${trip.busId.name})
+            From Stop: ${fromStop}
+            To Stop: ${toStop}
+            Seat Numbers: ${seatNumbers.join(', ')}
+            Total Fare: ${totalFare} LKR
+
+            Your booking is now confirmed. Thank you for choosing our service!
+
+            Best regards,
+            Bus Booking Team
+          `,
+        };
+
+        await emailService.sendEmail(emailContent);
+      }
+
       return booking;
     } catch (error) {
       console.error('Error creating booking:', error);
@@ -214,6 +262,47 @@ class BookingService {
       }
 
       const updatedBooking = await Booking.findByIdAndUpdate(bookingId, { $set: updateData }, { new: true });
+
+      const user = await User.findById(updatedBooking.userId);
+      if (user) {
+        const emailContent = {
+          to: user.email,
+          subject: 'Booking Update Confirmation',
+          html: `
+            <h2>Your Booking Has Been Updated</h2>
+            <p>Dear ${user.firstname} ${user.lastname},</p>
+            <p>Your booking has been successfully updated. Here are the updated details:</p>
+            <p><strong>Trip:</strong> ${trip.routeId.name} (Bus: ${trip.busId.name})</p>
+            <p><strong>From Stop:</strong> ${updateData.fromStop || booking.fromStop}</p>
+            <p><strong>To Stop:</strong> ${updateData.toStop || booking.toStop}</p>
+            <p><strong>Seat Numbers:</strong> ${updateData.seatNumbers || booking.seatNumbers}</p>
+            <p><strong>Total Fare:</strong> ${updateData.totalFare || booking.totalFare} LKR</p>
+            <p>Your booking has been updated. Thank you for using our service!</p>
+            <p>Best regards,<br>Bus Booking Team</p>
+          `,
+          text: `
+            Your Booking Has Been Updated
+
+            Dear ${user.firstname} ${user.lastname},
+
+            Your booking has been successfully updated. Here are the updated details:
+
+            Trip: ${trip.routeId.name} (Bus: ${trip.busId.name})
+            From Stop: ${updateData.fromStop || booking.fromStop}
+            To Stop: ${updateData.toStop || booking.toStop}
+            Seat Numbers: ${updateData.seatNumbers || booking.seatNumbers}
+            Total Fare: ${updateData.totalFare || booking.totalFare} LKR
+
+            Your booking has been updated. Thank you for using our service!
+
+            Best regards,
+            Bus Booking Team
+          `,
+        };
+
+        await emailService.sendEmail(emailContent);
+      }
+
       return updatedBooking;
     } catch (error) {
       console.error('Error updating booking:', error);
@@ -302,6 +391,24 @@ class BookingService {
       return bookings;
     } catch (error) {
       console.error('Error getting user bookings:', error);
+      throw error;
+    }
+  }
+
+  async getAllBookings() {
+    try {
+      const bookings = await Booking.find()
+        .populate({
+          path: 'tripId',
+          populate: {
+            path: 'routeId busId',
+          },
+        })
+        .sort({ bookingDate: -1 });
+
+      return bookings;
+    } catch (error) {
+      console.error('Error retrieving all bookings:', error);
       throw error;
     }
   }
