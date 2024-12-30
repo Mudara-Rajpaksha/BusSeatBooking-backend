@@ -5,7 +5,7 @@ const logger = require('../utils/logger');
 mongoose.set('strictQuery', true);
 
 const connectDB = async () => {
-  try {
+  try { 
     const conn = await mongoose.connect(config.DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

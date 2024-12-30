@@ -1,0 +1,990 @@
+openapi: 3.0.0
+info:
+  title: Bus Seat Booking API
+  version: 1.0.0
+  description: API documentation for bus seat booking system
+  contact:
+    name: Ovini Rajapaksha
+    email: ovirajapakdha@gmail.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Auth
+  - name: Routes
+  - name: Permit
+  - name: Buses
+  - name: Seat Mapping
+  - name: Trip
+  - name: Booking
+  - name: Users
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Registration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firstname: John
+                lastname: Doe
+                email: johndoe@example.com
+                mobile: '1234567890'
+                username: johndoe
+                password: StrongPassword123
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/updateMe/{id}:
+    put:
+      tags:
+        - Auth
+      summary: Update me
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The ID of the user to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firstname: John
+                lastname: Doe
+                email: johndoe@example.com
+                mobile: '1234567890'
+                username: johndoe
+                password: StrongPassword321
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: johndoe
+                password: StrongPassword321
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/refresh-token:
+    post:
+      tags:
+        - Auth
+      summary: Refresh Token
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/me:
+    get:
+      tags:
+        - Auth
+      summary: Auth Me
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: Logout
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /routes/add:
+    post:
+      tags:
+        - Routes
+      summary: Add Route
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                routeNumber: R001
+                startLocation: Colombo
+                endLocation: Kandy
+                distance: 115
+                stops:
+                  - name: Maharagama
+                    distance: 10
+                    timeFromStart: '08:00'
+                  - name: Nugegoda
+                    distance: 20
+                    timeFromStart: '08:00'
+                fare: 300
+                schedules:
+                  - departureTime: '08:00'
+                    arrivalTime: '10:30'
+                    frequency: 15
+                    daysOperating:
+                      - Monday
+                      - Tuesday
+                      - Wednesday
+                      - Thursday
+                      - Friday
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /routes/{routeId}:
+    put:
+      tags:
+        - Routes
+      summary: Update Route
+      parameters:
+        - in: path
+          name: routeId
+          required: true
+          schema:
+            type: string
+          description: The ID of the route to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                routeNumber: R001
+                startLocation: Colombo
+                endLocation: Kandy
+                distance: 116
+                stops:
+                  - name: Maharagama
+                    distance: 10
+                    timeFromStart: 15
+                  - name: Nugegoda
+                    distance: 20
+                    timeFromStart: 30
+                fare: 300
+                schedules:
+                  - departureTime: '08:00'
+                    arrivalTime: '10:30'
+                    frequency: 15
+                    daysOperating:
+                      - Monday
+                      - Tuesday
+                      - Wednesday
+                      - Thursday
+                      - Friday
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    get:
+      tags:
+        - Routes
+      summary: View Single Route
+      parameters:
+        - in: path
+          name: routeId
+          required: true
+          schema:
+            type: string
+          description: The ID of the route to view
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Routes
+      summary: Delete Route
+      parameters:
+        - in: path
+          name: routeId
+          required: true
+          schema:
+            type: string
+          description: The ID of the route to delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /routes:
+    get:
+      tags:
+        - Routes
+      summary: View All Routes
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /permit/add:
+    post:
+      tags:
+        - Permit
+      summary: Add Permit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                permitNumber: PERMIT12345
+                holderName: John Doe
+                vehicleType: bus
+                status: active
+                issuedDate: '2024-12-01'
+                expiryDate: '2025-12-01'
+                documents:
+                  - document1.pdf
+                  - document2.pdf
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /permit/{permitId}:
+    put:
+      tags:
+        - Permit
+      summary: Update Permit
+      parameters:
+        - in: path
+          name: permitId
+          required: true
+          schema:
+            type: string
+          description: The ID of the permit to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                permitNumber: PERMIT67890
+                holderName: Jane Doe
+                vehicleType: luxury
+                status: expired
+                issuedDate: '2023-06-01'
+                expiryDate: '2024-06-01'
+                documents:
+                  - updated_document1.pdf
+                  - updated_document2.pdf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Permit
+      summary: Delete Permit
+      parameters:
+        - in: path
+          name: permitId
+          required: true
+          schema:
+            type: string
+          description: The ID of the permit to delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    get:
+      tags:
+        - Permit
+      summary: View Single Permit
+      parameters:
+        - in: path
+          name: permitId
+          required: true
+          schema:
+            type: string
+          description: The ID of the permit to view
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /permit:
+    get:
+      tags:
+        - Permit
+      summary: View All Permits
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /buses/add:
+    post:
+      tags:
+        - Buses
+      summary: Add Bus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                registrationNumber: AB1234XY
+                permit: 6772370ebde034f159b9310d
+                capacity: 45
+                manufacturer: Mercedes
+                model: Sprinter
+                yearOfManufacture: 2020
+                maintenanceHistory:
+                  - date: '2024-06-15T00:00:00.000Z'
+                    description: Engine repair
+                    cost: 500
+                status: active
+                routes:
+                  - 6772340e97a43391a10cfb0a
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /buses/{busId}:
+    put:
+      tags:
+        - Buses
+      summary: Update Bus
+      parameters:
+        - in: path
+          name: busId
+          required: true
+          schema:
+            type: string
+          description: The ID of the bus to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                registrationNumber: AB1234XY
+                permit: 6770aee16b92196603c8d3cf
+                capacity: 46
+                manufacturer: Mercedes
+                model: Sprinter
+                yearOfManufacture: 2020
+                maintenanceHistory:
+                  - date: '2024-06-15T00:00:00.000Z'
+                    description: Engine repair
+                    cost: 500
+                status: active
+                routes:
+                  - 6770aefd6b92196603c8d3d6
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    get:
+      tags:
+        - Buses
+      summary: View Single Bus
+      parameters:
+        - in: path
+          name: busId
+          required: true
+          schema:
+            type: string
+          description: The ID of the bus to view
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /buses:
+    get:
+      tags:
+        - Buses
+      summary: View All Buses
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Buses
+      summary: Delete Bus
+      parameters:
+        - in: path
+          name: busId
+          required: true
+          schema:
+            type: string
+          description: The ID of the bus to delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /seat-maps/add:
+    post:
+      tags:
+        - Seat Mapping
+      summary: Add Seat Layout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                busId: 6772380f31a51f2b214a3060
+                layout:
+                  - seatNumber: 1A
+                    row: 1
+                    column: 1
+                    type: regular
+                    isActive: true
+                  - seatNumber: 1B
+                    row: 1
+                    column: 2
+                    type: regular
+                    isActive: true
+                  - seatNumber: 2A
+                    row: 2
+                    column: 1
+                    type: luxury
+                    isActive: true
+                  - seatNumber: 2B
+                    row: 2
+                    column: 2
+                    type: luxury
+                    isActive: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /seat-maps/{seatMapId}:
+    put:
+      tags:
+        - Seat Mapping
+      summary: Update Seat Layout
+      parameters:
+        - in: path
+          name: seatMapId
+          required: true
+          schema:
+            type: string
+          description: The ID of the seat layout to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                busId: 6770afb16b92196603c8d421
+                layout:
+                  - seatNumber: 1A
+                    row: 1
+                    column: 1
+                    type: regular
+                    isActive: true
+                  - seatNumber: 1B
+                    row: 1
+                    column: 2
+                    type: regular
+                    isActive: true
+                  - seatNumber: 2A
+                    row: 2
+                    column: 1
+                    type: regular
+                    isActive: true
+                  - seatNumber: 2B
+                    row: 2
+                    column: 2
+                    type: luxury
+                    isActive: true
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    get:
+      tags:
+        - Seat Mapping
+      summary: View Single Seat Layout
+      parameters:
+        - in: path
+          name: seatMapId
+          required: true
+          schema:
+            type: string
+          description: The ID of the seat layout to view
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Seat Mapping
+      summary: Delete Seat Layout
+      parameters:
+        - in: path
+          name: seatMapId
+          required: true
+          schema:
+            type: string
+          description: The ID of the seat layout to delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /seat-maps:
+    get:
+      tags:
+        - Seat Mapping
+      summary: View All Seat Layouts
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    get:
+      tags:
+        - Seat Mapping
+      summary: View Seat Availability Matrix
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /trips/add:
+    post:
+      tags:
+        - Trip
+      summary: Create a New Trip
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                routeId: 6772340e97a43391a10cfb0a
+                busId: 6772380f31a51f2b214a3060
+                departureDate: '2024-12-30T08:00:00Z'
+                arrivalDate: '2024-12-30T10:00:00Z'
+                paymentRequired: false
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /trips/{tripId}:
+    put:
+      tags:
+        - Trip
+      summary: Update an Existing Trip
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: string
+          description: The ID of the trip to update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                routeId: 6770aefd6b92196603c8d3d6
+                busId: 6770ce0a55df5c89dcd98baf
+                departureDate: '2024-12-30T08:00:00Z'
+                arrivalDate: '2024-12-30T10:00:00Z'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    get:
+      tags:
+        - Trip
+      summary: Get a Specific Trip
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: string
+          description: The ID of the trip to retrieve
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Trip
+      summary: Delete an Existing Trip
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: string
+          description: The ID of the trip to delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /trips:
+    get:
+      tags:
+        - Trip
+      summary: Check Trip Availability
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+          example: scheduled
+        - name: routeId
+          in: query
+          schema:
+            type: string
+          example: 6770aefd6b92196603c8d3d6
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /bookings/create:
+    post:
+      tags:
+        - Booking
+      summary: Create a Booking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                tripId: 67723d2b2fb67cf5f8c8ea5a
+                userId: 67722f88d6d912d05ff6d84b
+                seatIds:
+                  - 67723ab1d5258746d6d0791b
+                  - 67723ab1d5258746d6d0791c
+                  - 67723ab1d5258746d6d0791d
+                fromStop: Maharagama
+                toStop: Nugegoda
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /bookings/available-trips:
+    get:
+      tags:
+        - Booking
+      summary: Find Available Trips
+      parameters:
+        - name: fromStop
+          in: query
+          schema:
+            type: string
+          example: Maharagama
+        - name: toStop
+          in: query
+          schema:
+            type: string
+          example: Nugegoda
+        - name: date
+          in: query
+          schema:
+            type: string
+          example: '2024-12-30'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /bookings/{tripId}/seat-availability:
+    get:
+      tags:
+        - Booking
+      summary: Get Seat Availability for a Trip
+      parameters:
+        - name: fromStop
+          in: query
+          schema:
+            type: string
+          example: Maharagama
+        - name: toStop
+          in: query
+          schema:
+            type: string
+          example: Nugegoda
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /bookings/{bookingId}/cancel:
+    delete:
+      tags:
+        - Booking
+      summary: Cancel a Booking
+      parameters:
+        - in: path
+          name: bookingId
+          required: true
+          schema:
+            type: string
+          description: The ID of the booking to cancel
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /users/operator:
+    get:
+      tags:
+        - Users
+      summary: View All Users by Role
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /users:
+    get:
+      tags:
+        - Users
+      summary: View All Users
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /users/create:
+    post:
+      tags:
+        - Users
+      summary: Create a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firstname: new
+                lastname: user
+                email: newuser@gmail.com
+                mobile: '0788538399'
+                username: neuser
+                role: admin
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /users/{id}:
+    put:
+      tags:
+        - Users
+      summary: Update User Details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firstname: John S
+                lastname: Doe
+                email: test@gmail.com
+                mobile: '1234567890'
+                username: johndoe
+                role: operator
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    patch:
+      tags:
+        - Users
+      summary: User Password Reset
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Users
+      summary: Deactivate User
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /users/remove/{id}:
+    delete:
+      tags:
+        - Users
+      summary: Remove User From the System
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -1,31 +1,10 @@
-const bookingComponents = require('../swagger_schemas/bookings/components');
-const bookingPaths = require('../swagger_schemas/bookings/paths');
-const authComponents = require('../swagger_schemas/auth/components');
-const authPaths = require('../swagger_schemas/auth/paths');
-const busComponents = require('../swagger_schemas/buses/components');
-const busPaths = require('../swagger_schemas/buses/paths');
-const routeComponents = require('../swagger_schemas/routes/components');
-const routePaths = require('../swagger_schemas/routes/paths');
-const tripComponents = require('../swagger_schemas/trips/components');
-const tripPaths = require('../swagger_schemas/trips/paths');
-const userComponents = require('../swagger_schemas/users/components');
-const userPaths = require('../swagger_schemas/users/paths');
-const seatMapComponents = require('../swagger_schemas/seatMap/components');
-const seatMapPaths = require('../swagger_schemas/seatMap/paths');
-const permitComponents = require('../swagger_schemas/permit/components');
-const permitMapPaths = require('../swagger_schemas/permit/paths');
-
 const swaggerOptions = {
   definition: {
-    openapi: '3.1.0',
+    openapi: '3.0.0',
     info: {
       title: 'Bus Seat Booking API',
       version: '1.0.0',
       description: 'API documentation for bus seat booking system',
-      contact: {
-        name: 'Ovini Rajapaksha',
-        email: 'ovirajapakdha@gmail.com',
-      },
     },
     servers: [
       {
@@ -38,68 +17,112 @@ const swaggerOptions = {
         bearerAuth: {
           type: 'http',
           scheme: 'bearer',
-          bearerFormat: 'JWT',
         },
-      },
-      schemas: {
-        ...authComponents.schemas,
-        ...bookingComponents.schemas,
-        ...busComponents.schemas,
-        ...routeComponents.schemas,
-        ...tripComponents.schemas,
-        ...userComponents.schemas,
-        ...seatMapComponents.schemas,
-        ...permitComponents.schemas,
-      },
-      responses: {
-        ...authComponents.responses,
-        ...bookingComponents.responses,
-        ...busComponents.responses,
-        ...routeComponents.responses,
-        ...tripComponents.responses,
-        ...userComponents.responses,
-        ...seatMapComponents.responses,
-        ...permitComponents.responses,
       },
     },
     tags: [
-      {
-        name: 'Auth',
-        description: 'Authentication endpoints',
-      },
-      {
-        name: 'Bookings',
-        description: 'Booking management endpoints',
-      },
-      {
-        name: 'Routes',
-        description: 'Route management endpoints',
-      },
-      {
-        name: 'Buses',
-        description: 'Bus management endpoints',
-      },
-      {
-        name: 'Trips',
-        description: 'Trip management endpoints',
-      },
-      {
-        name: 'Users',
-        description: 'User management endpoints',
-      },
+      { name: 'Auth' },
+      { name: 'Routes' },
+      { name: 'Permit' },
+      { name: 'Buses' },
+      { name: 'Seat Mapping' },
+      { name: 'Trip' },
+      { name: 'Booking' },
+      { name: 'Users' },
     ],
     paths: {
-      ...authPaths,
-      ...bookingPaths,
-      ...busPaths,
-      ...routePaths,
-      ...tripPaths,
-      ...userPaths,
-      ...seatMapPaths,
-      ...permitMapPaths,
+      '/auth/register': {
+        post: {
+          tags: ['Auth'],
+          summary: 'Registration',
+          requestBody: {
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  example: {
+                    firstname: 'John',
+                    lastname: 'Doe',
+                    email: 'johndoe@example.com',
+                    mobile: '1234567890',
+                    username: 'johndoe',
+                    password: 'StrongPassword123',
+                  },
+                },
+              },
+            },
+          },
+          responses: {
+            200: {
+              description: 'Successful response',
+              content: {
+                'application/json': {},
+              },
+            },
+          },
+        },
+      },
+      '/auth/updateMe/{id}': {
+        put: {
+          tags: ['Auth'],
+          summary: 'Update me',
+          security: [{ bearerAuth: [] }],
+          requestBody: {
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  example: {
+                    firstname: 'John',
+                    lastname: 'Doe',
+                    email: 'johndoe@example.com',
+                    mobile: '1234567890',
+                    username: 'johndoe',
+                    password: 'StrongPassword321',
+                  },
+                },
+              },
+            },
+          },
+          responses: {
+            200: {
+              description: 'Successful response',
+              content: {
+                'application/json': {},
+              },
+            },
+          },
+        },
+      },
+      '/auth/login': {
+        post: {
+          tags: ['Auth'],
+          summary: 'Login',
+          requestBody: {
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  example: {
+                    username: 'johndoe',
+                    password: 'StrongPassword321',
+                  },
+                },
+              },
+            },
+          },
+          responses: {
+            200: {
+              description: 'Successful response',
+              content: {
+                'application/json': {},
+              },
+            },
+          },
+        },
+      },
     },
   },
-  apis: ['./routes/*.js', './models/*.js'],
 };
 
 module.exports = swaggerOptions;

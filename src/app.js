@@ -13,9 +13,10 @@ const config = require('./config/config');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 const logger = require('./utils/logger');
-const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const swaggerOptions = require('./config/swagger');
+const YAML = require('yamljs');
+const path = require('path');
+const swaggerDocument = YAML.load(path.join(__dirname, './swagger.yaml'));
 
 const app = express();
 
@@ -41,7 +42,13 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser(config.COOKIE_SECRET));
 
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
+swaggerDocument.servers = [
+  {
+    url: process.env.API_URL || 'http://localhost:5000/api',
+    description: process.env.NODE_ENV === 'production' ? 'Production Server' : 'Development Server',
+  },
+];
+
 app.use(
   '/api-docs',
   process.env.NODE_ENV === 'production'
@@ -61,7 +68,7 @@ app.use(
       ]
     : [],
   swaggerUi.serve,
-  swaggerUi.setup(swaggerSpec, {
+  swaggerUi.setup(swaggerDocument, {
     explorer: true,
     customSiteTitle: 'API Documentation',
     customfavIcon: '/assets/favicon.ico',
@@ -72,6 +79,7 @@ app.use(
     },
   })
 );
+
 app.use('/api', routes);
 
 app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));

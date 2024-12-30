@@ -4,16 +4,6 @@ module.exports = {
       tags: ['Bookings'],
       summary: 'Find available trips',
       description: 'Retrieve a list of available trips based on specified criteria',
-      requestBody: {
-        required: false,
-        content: {
-          'application/json': {
-            schema: {
-              $ref: '#/components/schemas/AvailableTripsInput',
-            },
-          },
-        },
-      },
       responses: {
         200: {
           description: 'List of available trips retrieved successfully',
