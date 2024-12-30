@@ -1,5 +1,7 @@
 const { SeatMap, Trip, Booking } = require('../models/Booking');
 const User = require('../models/User');
+const Bus = require('../models/Bus');
+const Route = require('../models/Route');
 const emailService = require('../services/emailService');
 const { ApiError } = require('../utils/responses');
 
@@ -147,6 +149,9 @@ class BookingService {
       });
 
       const user = await User.findById(userId);
+      const bus = await Bus.findById(trip.busId);
+      const route = await Route.findById(trip.routeId);
+
       if (user) {
         const emailContent = {
           to: user.email,
@@ -155,7 +160,7 @@ class BookingService {
             <h2>Your Booking Details</h2>
             <p>Dear ${user.firstname} ${user.lastname},</p>
             <p>Your booking has been successfully confirmed. Here are the details:</p>
-            <p><strong>Trip:</strong> ${trip.routeId.name} (Bus: ${trip.busId.name})</p>
+            <p><strong>Trip:</strong> ${route.routeNumber} (Bus: ${bus.registrationNumber})</p>
             <p><strong>From Stop:</strong> ${fromStop}</p>
             <p><strong>To Stop:</strong> ${toStop}</p>
             <p><strong>Seat Numbers:</strong> ${seatNumbers.join(', ')}</p>
@@ -174,7 +179,7 @@ class BookingService {
             From Stop: ${fromStop}
             To Stop: ${toStop}
             Seat Numbers: ${seatNumbers.join(', ')}
-            Total Fare: ${totalFare} LKR
+            Total Fare: ${totalFare.toFixed(2)} LKR
 
             Your booking is now confirmed. Thank you for choosing our service!
 

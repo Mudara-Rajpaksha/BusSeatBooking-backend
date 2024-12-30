@@ -6975,3 +6975,46 @@
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:09:57.598Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:09:59.882Z"}
 {"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-02.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:10:03.211Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:11:37.193Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:11:40.989Z"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:12:11 +0000] \"DELETE /api/bookings/67724675ccbb7b1dd2183c8f/cancel HTTP/1.1\" 200 584 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:12:11.390Z"}
+{"ip":"::1","level":"error","message":"Access token expired","method":"POST","path":"/api/bookings/create","stack":"Error: Access token expired\n    at TokenService.validateAccessToken (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\services\\tokenService.js:61:13)\n    at exports.authenticate (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\src\\middleware\\auth.js:12:40)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at Layer.handle [as handle_request] (D:\\Projects\\Devs\\NIBM ASSINGMENTS\\Ovini\\BusSeatBooking-backend\\node_modules\\express\\lib\\router\\layer.js:95:5)","timestamp":"2024-12-30T07:12:35.815Z"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:12:35 +0000] \"POST /api/bookings/create HTTP/1.1\" 401 - \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:12:35.817Z"}
+{"level":"info","message":"Email sent successfully","messageId":"<c715cece-42bd-4528-e481-8e556a55e55a@yourdomain.com>","subject":"Booking Confirmation","timestamp":"2024-12-30T07:12:59.266Z","to":"learn.dev0603@gmail.com"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:12:59 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 585 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:12:59.267Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:13:56.317Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:13:59.928Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:14:06.180Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:14:09.077Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:14:11.035Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:14:14.088Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:14:24.003Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:14:27.526Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:14:30.527Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:14:32.437Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:14:35.498Z"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:14:55 +0000] \"DELETE /api/bookings/677247f64a9de07cb36443d1/cancel HTTP/1.1\" 200 584 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:14:55.288Z"}
+{"level":"info","message":"Email sent successfully","messageId":"<07e2887d-ac01-4901-ae29-903f2ec919a0@yourdomain.com>","subject":"Booking Confirmation","timestamp":"2024-12-30T07:15:11.624Z","to":"learn.dev0603@gmail.com"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:15:11 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 585 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:15:11.625Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:15:33.974Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-01.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:15:37.587Z"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:15:50 +0000] \"DELETE /api/bookings/6772487a946920d77cfb08cb/cancel HTTP/1.1\" 200 584 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:15:50.098Z"}
+{"level":"info","message":"Email sent successfully","messageId":"<6d6d9b49-35a9-30da-3a04-9ecd10519f5c@yourdomain.com>","subject":"Booking Confirmation","timestamp":"2024-12-30T07:16:05.163Z","to":"learn.dev0603@gmail.com"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:16:05 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 585 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:16:05.164Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:16:45.281Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:16:49.205Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:16:57.525Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:17:00.715Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:17:08.173Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:17:11.286Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:17:16.689Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:17:19.946Z"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:17:25 +0000] \"DELETE /api/bookings/677248af6b7600b22a48e3e4/cancel HTTP/1.1\" 200 584 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:17:25.386Z"}
+{"level":"info","message":"Email sent successfully","messageId":"<89c0f666-b176-7413-42df-32c4e94da2f2@yourdomain.com>","subject":"Booking Confirmation","timestamp":"2024-12-30T07:17:41.162Z","to":"learn.dev0603@gmail.com"}
+{"level":"info","message":"::1 - - [30/Dec/2024:07:17:41 +0000] \"POST /api/bookings/create HTTP/1.1\" 201 585 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2024-12-30T07:17:41.164Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:18:17.568Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:18:21.527Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:18:24.734Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:19:00.968Z"}
+{"level":"info","message":"MongoDB Connected: ac-ujg8pad-shard-00-00.nh31pvk.mongodb.net","timestamp":"2024-12-30T07:19:04.184Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2024-12-30T07:19:11.402Z"}
